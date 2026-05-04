@@ -1,0 +1,19 @@
+/* 自定义字体设置 */
+/* 全局字体 - 微软雅黑 */
+body {
+  font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif !important;
+}
+
+/* 文章标题 - 宋体加粗 */
+#article-container .post-title,
+#article-container h1,
+.post-title,
+.article-title {
+  font-family: "SimSun", "宋体", "STSong", "华文宋体", serif !important;
+  font-weight: bold !important;
+}
+
+/* 文章正文 - 微软雅黑 */
+#article-container {
+  font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif !important;
+}

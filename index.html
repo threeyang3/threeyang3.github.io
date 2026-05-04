@@ -1,267 +1,234 @@
-<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Threeyang's blog</title><meta name="keywords" content="读书 写作 计算机"><meta name="author" content="言照"><meta name="copyright" content="言照"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="青山遮不住，毕竟东流去">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Threeyang&#39;s blog">
-<meta property="og:url" content="http://threeyang3.github.io/index.html">
-<meta property="og:site_name" content="Threeyang&#39;s blog">
-<meta property="og:description" content="青山遮不住，毕竟东流去">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://threeyang3.github.io/img/4261.JPG">
-<meta property="article:author" content="言照">
-<meta property="article:tag" content="读书 写作 计算机">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://threeyang3.github.io/img/4261.JPG"><link rel="shortcut icon" href="/img/logo.ico"><link rel="canonical" href="http://threeyang3.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Threeyang's blog</title><meta name="author" content="言照"><meta name="copyright" content="言照"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="青山遮不住，毕竟东流去"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Threeyang's blog",
+  "alternateName": [
+    "threeyang3.github.io"
+  ],
+  "url": "http://threeyang3.github.io/"
+}</script><link rel="shortcut icon" href="/img/logo.ico"><link rel="canonical" href="http://threeyang3.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
   },
   relativeDate: {
     homepage: false,
     post: false
   },
-  runtime: 'days',
-  date_suffix: {
-    just: 'Just',
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
     min: 'minutes ago',
     hour: 'hours ago',
     day: 'days ago',
     month: 'months ago'
   },
   copyright: undefined,
-  lightbox: 'fancybox',
+  lightbox: 'null',
   Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
   },
   isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'Threeyang\'s blog',
-  isPost: false,
-  isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-07-17 21:08:57'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/4261.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> All</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Articles</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-pencil"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Douban</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> movies</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Others</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/bk1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Threeyang's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> All</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Articles</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-pencil"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Douban</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> movies</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Others</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Threeyang's blog</h1><div id="site_social_icons"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/48e3/" title="关于这个Blog的一些说明"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于这个Blog的一些说明"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/48e3/" title="关于这个Blog的一些说明">关于这个Blog的一些说明</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">Sticky</span><span class="article-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-07-14T16:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%86%99%E4%BD%9C/">写作</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E4%B8%AA%E4%BA%BA/">个人</a></span></div><div class="content">这个Blog用来记录我写的随笔、书评、读书笔记、影评等，小说还不大会写。前些天费力把评论系统搞出来，是希望大家在愿意发表意见时能顺手为之。期待并感谢大家的反馈，这会帮助我改进文章和提升自己。在此我觉得有必要对这个blog做一些必要的说明。
-关于写作内容我文章的内容多是源于生活：听闻、经历和读书。也许是从我的世界掠过的只言片语，也许是念念不忘的一幅画面，它们早在我的心中埋下种子，静待发呆时的思索将它们浇灌成文字。江南曾说：一个作者哪能写尽世上的所有人呢？写来写去，写的还是自己和自己身边的人，无论孤独还是野心，都是自己人生某个侧面的写照。这是我的局限和浅薄，但也是我的真诚。请允许我也用这段话来标榜自己吧。
-关于观点的连续性与矛盾博主虽然见识不多，想法却是时时刻刻在变化的。可能因为看到、听到的一句话，也可能因为某次深夜所思。我总是会不断推翻之前自己的观点。许多之前写的文章，哪怕是半年内写的文章，现在再看都会觉得幼稚和浅薄。可我想保留那些现在可能不再认同的话。因为之前看到一句话：“人不能用三十多岁的成熟来否认二十多岁的年少孤独。”同样的，现在的我又凭什么去否定写出那些文字时的我。只要写作时带着 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/2a0d/" title="二十岁生日随笔"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="二十岁生日随笔"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/2a0d/" title="二十岁生日随笔">二十岁生日随笔</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">Sticky</span><span class="article-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-25T16:00:00.000Z" title="Created 2023-08-26 00:00:00">2023-08-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%90%86%E6%83%B3/">理想</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%93%B2%E6%80%9D/">哲思</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E4%B8%AA%E4%BA%BA/">个人</a></span></div><div class="content">二十岁生日随笔‌‌‌　　恍惚之间，来世上已有二十年了。也算是生命中的一个重要节点，当是思考人生的好时刻。‌‌‌　　过去这几年于我而言，还是很有意义的：我进一步坚定了自己的理想，也知道为了理想应当先做哪些努力；虽仍是迷茫，却也知手上该做些什么；虽仍会抱怨环境，却也清楚自己做什么才能改变现状。
-‌‌‌　　二十岁生日，是一个人度过的，就如往年在学校里过生日一般。我们家向来是没有开生日派对的传统的，亦没有礼尚往来的传统。收到过的生日礼物寥寥无几，印象最深者还是小时候老姐送的遥控小车。如今，大概就是每年和汤阳互送礼物。哦，对了，还收到过陈棵送的贴纸和毛巾。 小时候很喜欢过生日，过生日可以吃到街上一块钱一份的纸杯小蛋糕，下面是面包，上面是奶油，用小勺子挖着，边吃边走。那已是当年最大的享受。于是过生日对我而言也就是能吃个小蛋糕罢了，重要但不那么的稀奇。‌‌‌　　对于有些很在乎生日仪式感的朋友，也许会觉得我有些冷漠，不怎么祝他们生日快乐，更不曾送他们生日礼物。高中时，看到叶恒、班长等人生日人尽皆知，班里很多人送他们生日礼物，我会有些羡慕，也有些伤心，因为自己没什么好送的，他们送些值钱的东西，我最多只能 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/e57e/" title="《流浪地球》书评"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《流浪地球》书评"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e57e/" title="《流浪地球》书评">《流浪地球》书评</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-11T16:00:00.000Z" title="Created 2024-06-12 00:00:00">2024-06-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E5%B9%BB/">科幻</a></span></div><div class="content">
-流浪地球
-电影拍得很好，扩展了很多
-对于感情的漠视，认为生死之外无大事，大概跟战争中漠视两性关系相近？可也不完全合理，正如三体中提到的“赋时光以生命”，更珍惜？
-人类的猜疑、怀疑、背叛，这个情节设置的很有意思。但也有矛盾，如果人不能判断太阳是否真的要发生“氦闪”，怎么说服整个世界的？如果能判断的话，又为何在太阳“回光返照”的时候怀疑呢？是判断的技术流失了？或者说，太阳出现这个状况就不合理。为了加入怀疑的情节而刻意如此。
-
-
-人与吞食者
-考古-土，对于这个我倒是有所体会，我去望遗址，常常会看着土发呆，想着，几千年前的人们就踩着这些土
-人类之于蚂蚁帝国，吞食帝国之于人类，何其相似，我们不会在乎比我们弱小得多的生命的死活，我们不会对牛羊讲道德，侵略者为什们药呢？
-可我们人类确实能创造文明，能创造出这么璀璨的文明，为什么牛羊之类的做不到呢？人类和牛羊之间的根本区别在哪里？
-多重反转：投降-宣战-失败-被吞食-离开-留下
-最后的结局确实出乎我意料，非常受触动。可是，没有人类的地球文明，与人类何干？
-吞食帝国的命运尽头是什么呢？无止境的向前，绝望地迎来最终命运。目的这么重要吗？以致于能够毫不犹豫 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《羊脂球》——莫泊桑短篇小说集"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集">《羊脂球》——莫泊桑短篇小说集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-05T16:00:00.000Z" title="Created 2024-06-06 00:00:00">2024-06-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%89%B9%E5%88%A4/">批判</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E6%82%B2%E6%82%AF/">悲悯</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%B0%8F%E8%AF%B4/">小说</a></span></div><div class="content">莫泊桑的小说中多包含悲悯情怀，多篇写道妓女，对妓女的同情，很少有人是一开始就想当妓女的，很多是被生活所迫。伟大的作家，似乎有此共性，博爱，悲悯的爱。
-
-月光
-自然之美；月光在我心中也是极美的，尤其是到了西安之后，常觉月亮又大又亮，皎月的光华甚至能照亮前路；“轻纱”真是贴切的比喻；美！能让人的心境发生变化
-
-
-项链
-以前看过的版本似乎是缩减过的，如今看的更加有细节，更加震撼；结尾是欧亨利式结尾，令人感叹“虚荣”的可怕
-
-
-两个朋友
-钓鱼真有这么大的魅力吗？
-
-
-骑马
-还是虚荣惹的祸
-
-
-西蒙的爸爸
-这篇算是难得带有温暖的了
-小孩子之间的恶意往往单纯却足以让人愤怒
-
-
-小狗皮埃罗
-勒费弗尔太太这样的人，很符合我对乡绅太太的印象，自命不凡，自以为善良，却只是满足自己那虚伪的良心，一旦要付出一些代价，便顾不上良心
-
-
-羊脂球
-无怪乎是名篇，我也才知道羊脂球是一个人
-什么才是真正的教养和素养？是身份，阶级，行当？还是善良、爱国和一些内心的坚持。
-这些贵族全都非常丑恶，自命不凡，自以为是，又常常为了利益而放低身段；看不起别人，自诩清高，又强迫别人去堕落；吃人嘴短，受人恩惠不说感恩，反而为了自己更多 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/9c06/" title="《关妖精的瓶子》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《关妖精的瓶子》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记">《关妖精的瓶子》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-30T16:00:00.000Z" title="Created 2024-05-31 00:00:00">2024-05-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E5%B9%BB/">科幻</a></span></div><div class="content">蛮有意思的王瑶老师本科不愧是学物理的，前几篇文字里很有学生的味道。小说很有“点子”，很“可爱”的点。读来会让人会心一笑，不过相比何夕的小说少了一些触动，比刘慈欣的小说少了一些震撼。整体像是轻小说，读来让人轻松愉悦的小说。“稀饭科幻”名不虚传，有不少像是披着科幻外皮的言情小说，这我觉得没什么。不是所有小说都需要承担很多东西，都要去揭示什么，以前听过一句话“鲁迅很好，但不能人人都是鲁迅”，就像鲁迅的小说很有意义，但我们也需要有人来写童话。有些小说能带给人快乐就很好了。
-我读过的科幻小说很少，不知道哪些点子是原创，还是有所参考借鉴等。
-
-卡门
-“文以载道”并不一定要是哲理吧，也可以是一种感受，一种情绪。
-情绪感受可以成为意义本身
-卡门就是这样，包含着浪漫、热情
-
-
-黑猫
-文笔很赞，但也有让我感到突兀的比喻
-图坦卡蒙，小学时候对此还是非常好奇地，什么“图坦卡蒙的诅咒”，在《查理九世》，在动画片《奇幻龙宝》，在看过的一些猎奇的书……搞神秘悬疑的氛围，很适合
-写作一定要“言之有物”吗？就像生活，一定要为了什么奋斗吗？单纯的感受、喜爱也很好啊。
-
-
-断层
-模仿其他人的文风写作，撑起一个“盛世”这一点 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/1ea8/" title="《战争与和平》"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《战争与和平》"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/1ea8/" title="《战争与和平》">《战争与和平》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-26T16:00:00.000Z" title="Created 2024-05-27 00:00:00">2024-05-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BB%8F%E5%85%B8/">经典</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E6%82%B2%E6%82%AF/">悲悯</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E7%88%B1%E6%83%85/">爱情</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%8E%86%E5%8F%B2/">历史</a></span></div><div class="content">关于拿破仑看着书中拿破仑的行为，再看看百科，了解了一下拿破仑的生平。不能不称之为传奇。可以说历史上没几个人比他更接近“成功”这个概念。可是他的人生仍然是充满遗憾的，甚至在“百日王朝”之后灰心丧气？不愿发动人民战争。对权力的欲望有止境吗？人能够一直胜利、一直成功吗？（2024.7.12补充：史铁生在《好运设计》中的探讨非常喜欢）多么传奇的拿破仑啊，经历和项羽也确实蛮像的，常常能打出以少胜多的仗。
-可是全部化作尘土了。读历史总有这样的感觉。
-关于娜塔莎我喜欢这样富有活力的女孩子。对一切事物保有热情，也秉持着一颗善良的心。可我又觉得她有些“没心没肺”带来的无情，多情亦是无情，对多纳托利的多情，就是对安德烈的无情。
-在她看来，她不是朝三暮四，不是放荡，而是勇敢去追求自己的爱，当时她的内心强烈要求这么做。
-如何看待呢？我替安德烈公爵感到非常非常难过，我替娜塔莎感到有些遗憾，我觉得她有些让人失望，有种“不干净”了的感觉。但是，“勇敢追求爱”究竟如何定义呢？“真爱”如何定义呢？是当下无与伦比的狂热与喜爱更符合“真爱”，还是偏于理性的更符合呢？
-娜塔莎这样的人，生来就是要感受快乐、喜悦的，悲伤不能长久 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/6c45/" title="《马可瓦尔多》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《马可瓦尔多》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6c45/" title="《马可瓦尔多》读书笔记">《马可瓦尔多》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-13T16:00:00.000Z" title="Created 2024-05-14 00:00:00">2024-05-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%B0%8F%E8%AF%B4/">小说</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%8D%A1%E5%B0%94%E7%BB%B4%E8%AF%BA/">卡尔维诺</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%8D%92%E8%AF%9E/">荒诞</a></span></div><div class="content">这本书与我真是有缘，在数量不多的书摊中看到此书。想起高中做过的阅读，《雨水和叶子》，看到后面发现《高速公路和森林》也做过
-整本书让我感受到作者的描述、“讲故事”本领高超。很多处描写非常生动、细腻。
-
-城里的蘑菇： 发现生活
-长椅上的假期： 宁静
-市政府的鸽子
-消失在雪里的城市： 茫茫然的自由
-黄蜂疗法
-一个有着阳光、沙子和睡意的星期六
-饭盒
-高速公路上的森林： 城市对？的侵蚀？
-好空气
-和奶牛们旅行
-毒兔子： 兔子的心理描写非常独特，也有些哀伤
-下错了的车站： 走，走，无论往哪走，似乎都比原来自由了些
-在河水更蓝的地方
-月亮与GNAC
-雨水和叶子：高中做过的阅读，当时只觉得富有童话色彩
-马可瓦尔多逛超市
-烟、风和肥皂泡
-属于他一个人的城市： 自由
-顽固猫咪的小花园
-圣诞老人的孩子
-
-正本短篇小说虽然讲的都不是值得开心的事情，但是还是像童话一般，如梦似幻，在“社畜”的生活中，发现不同，发现奇妙。这也是我努力做的。
-
-马可瓦尔多步行去上班，因为大雪，电车停运了。一路上，马可瓦尔多自己给自己开着路，感到从来没有如此地自由过。在城里的街道上，人行道和车行道之间的每一处差别都消失了，车辆不能通行 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/3fe/" title="《基督山伯爵》：忍耐、等待和希望"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《基督山伯爵》：忍耐、等待和希望"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/3fe/" title="《基督山伯爵》：忍耐、等待和希望">《基督山伯爵》：忍耐、等待和希望</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-12T16:00:00.000Z" title="Created 2024-04-13 00:00:00">2024-04-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%B0%8F%E8%AF%B4/">小说</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E6%82%B2%E5%89%A7/">悲剧</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%B8%8C%E6%9C%9B/">希望</a></span></div><div class="content">摘录
-心灵高尚的人，祝你幸福；但愿天主为你已做和将做的善事赐福于你；但愿我的感谢如同你的善行一样不为人所知。
-您不知道，整整十四年我就给关在伊夫堡的地牢里，离您才四分之一里路;您不知道，这十四年里，我天天在心里对自己重复第一天就立下的复仇誓言，可我却不知道您已经嫁给了诬告我的费尔南，也不知道我的父亲已经死了，而且是饿死的!
-哦!梅塞苔丝，您的这个名字，我曾经满怀怅长吁短叹地呼唤过它，我曾经在痛苦的呻吟中呼唤过它，也曾在绝望的喘息中呼唤过它。在严寒刺骨的冬天，我在地牢的麦秸堆上冻得发抖时呼唤过它;在酷暑难熬的夏天，我在牢房的石板地上辗转反侧时呼唤过它。梅塞苔丝，我非得为自己报仇不可，因为我受了十四年折磨，我哭泣、诅咒了十四年;现在，我对您说，梅塞苔丝，我非得为自己报仇不可!
-从昨天起，我明白了一个人的意志能有多大的力量。噢!母亲，有些人曾经受过那么多苦，但他们非但没有死去，而且在上天曾给过他们幸福许诺的废墟上，凭着天主曾给过他们的那点希望，重新获得了财产和幸福!我明白了，母亲，我见到过这样的人了;我知道他们是怎样凭着魄力和勇气，从仇敌把他们扔进去的深渊里爬上来，战胜他们的对手反过来把那些 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/e9a9/" title="书评《朝闻道》"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="书评《朝闻道》"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e9a9/" title="书评《朝闻道》">书评《朝闻道》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-01T16:00:00.000Z" title="Created 2024-04-02 00:00:00">2024-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E5%B9%BB/">科幻</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E6%AE%89%E9%81%93/">殉道</a></span></div><div class="content">书评|《朝闻道》《朝闻道》是刘慈欣写的短篇科幻小说，大概1.2W字。书中讲了一些理论物理学家被更高级的文明告知无法通过实验来研究得到宇宙的大统一模型，为了看到大统一模型，这些物理学家愿意用生命交换对真理片刻的洞彻。为什么会去看这本书呢？我在开学初看了《奥术神座》《上帝掷骰子吗》《爱因斯坦谈人生》这三本书。在读这些书时，我常常有心潮澎湃之感。我觉得自己在初中时想的“以后想要研究物理”并不是瞎说的，我能够感受到真理的美。我想起之前看到的一段视频，2015年科学家宣布探测到引力波，“We have detected the gravitational waves.We did it!”听到他那略显平静的声音的时候，我突然有一种灵魂的战栗感。虽然爱因斯坦已去世六十余年，但我好像看见了他那深邃的眼神。广义相对论跨越百年时光，将真理之美，如此清楚地展现在我面前。知乎上关于引力波的话题下，有人推荐刘慈欣的《朝闻道》，于是有了这篇书评。《朝闻道》中的也有个丁仪，不过不是《三体》中的丁仪。丁仪为了看到宇宙的大统一模型，放弃生命，抛妻弃子。这听起来好像有些夸张，放在以前我是不能理解的，但最近我好像能够理解 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/7ce0/" title="The Little Prince"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="The Little Prince"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7ce0/" title="The Little Prince">The Little Prince</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-30T16:00:00.000Z" title="Created 2023-10-01 00:00:00">2023-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%90%86%E6%83%B3/">理想</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E7%BB%8F%E5%85%B8/">经典</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%8B%B1%E6%96%87/">英文</a></span></div><div class="content">The Little Prince
-with perhaps a hint of sadness
-then they would be convinced, and leave you in peace from their questions.
-I have had to grow old.
-I do not much like to take the tone of a moralist.
-You know-one loves the sunset, when one is so sad…
-The little prince never let go of a question, once he had asked it.
-You talk just like the grown-ups!
-I know a planet where there is a certain red-faced gentleman. He has never smelled a flower. He has never looked at a star. He has never loved anyon ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/4261.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">言照</div><div class="author-info__description">青山遮不住，毕竟东流去</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/threeyang3"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">很感谢你看我的文章，期待你的反馈。</div></div><div class="card-widget article" id="article"><div class="item-headline"><i class="fas fa-user"></i><span>了解作者</span></div><div class="item-content"><p><a href="https://threeyang3.github.io/posts/2a0d/">二十岁生日随笔</a></p> <p><a href="https://threeyang3.github.io/posts/f938/">关于写作和理想</a></p> <p><a href="https://threeyang3.github.io/posts/b258/">三观的变化</a></p></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/48e3/" title="关于这个Blog的一些说明"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于这个Blog的一些说明"/></a><div class="content"><a class="title" href="/posts/48e3/" title="关于这个Blog的一些说明">关于这个Blog的一些说明</a><time datetime="2024-07-14T16:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e57e/" title="《流浪地球》书评"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《流浪地球》书评"/></a><div class="content"><a class="title" href="/posts/e57e/" title="《流浪地球》书评">《流浪地球》书评</a><time datetime="2024-06-11T16:00:00.000Z" title="Created 2024-06-12 00:00:00">2024-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《羊脂球》——莫泊桑短篇小说集"/></a><div class="content"><a class="title" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集">《羊脂球》——莫泊桑短篇小说集</a><time datetime="2024-06-05T16:00:00.000Z" title="Created 2024-06-06 00:00:00">2024-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《关妖精的瓶子》读书笔记"/></a><div class="content"><a class="title" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记">《关妖精的瓶子》读书笔记</a><time datetime="2024-05-30T16:00:00.000Z" title="Created 2024-05-31 00:00:00">2024-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1ea8/" title="《战争与和平》"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《战争与和平》"/></a><div class="content"><a class="title" href="/posts/1ea8/" title="《战争与和平》">《战争与和平》</a><time datetime="2024-05-26T16:00:00.000Z" title="Created 2024-05-27 00:00:00">2024-05-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(https:/images8.alphacoders.com/106/1061713.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/4261.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> All</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Articles</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-pencil"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Douban</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> movies</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Others</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/bk1.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Threeyang's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> All</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Articles</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-pencil"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Douban</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> movies</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Others</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Threeyang's blog</h1><div id="site_social_icons"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/48e3/" title="关于这个Blog的一些说明"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于这个Blog的一些说明"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/48e3/" title="关于这个Blog的一些说明"><i class="fas fa-thumbtack sticky"></i>关于这个Blog的一些说明</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-07-14T16:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%86%99%E4%BD%9C/">写作</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E4%B8%AA%E4%BA%BA/">个人</a></span></div><div class="content">这个Blog用来记录我写的随笔、书评、读书笔记、影评等，小说还不大会写。前些天费力把评论系统搞出来，是希望大家在愿意发表意见时能顺手为之。期待并感谢大家的反馈，这会帮助我改进文章和提升自己。在此我觉得有必要对这个blog做一些必要的说明。 关于写作内容我文章的内容多是源于生活：听闻、经历和读书。也许是从我的世界掠过的只言片语，也许是念念不忘的一幅画面，它们早在我的心中埋下种子，静待发呆时的思索将它们浇灌成文字。江南曾说：一个作者哪能写尽世上的所有人呢？写来写去，写的还是自己和自己身边的人，无论孤独还是野心，都是自己人生某个侧面的写照。这是我的局限和浅薄，但也是我的真诚。请允许我也用这段话来标榜自己吧。 关于观点的连续性与矛盾博主虽然见识不多，想法却是时时刻刻在变化的。可能因为看到、听到的一句话，也可能因为某次深夜所思。我总是会不断推翻之前自己的观点。许多之前写的文章，哪怕是半年内写的文章，现在再看都会觉得幼稚和浅薄。可我想保留那些现在可能不再认同的话。因为之前看到一句话：“人不能用三十多岁的成熟来否认二十多岁的年少孤独。”同样的，现在的我又凭什么去否定写出那些文字时的我。只要写作...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/2a0d/" title="二十岁生日随笔"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="二十岁生日随笔"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/2a0d/" title="二十岁生日随笔"><i class="fas fa-thumbtack sticky"></i>二十岁生日随笔</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-25T16:00:00.000Z" title="Created 2023-08-26 00:00:00">2023-08-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%A2%A6%E6%83%B3/">梦想</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%93%B2%E6%80%9D/">哲思</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E4%B8%AA%E4%BA%BA/">个人</a></span></div><div class="content">‌‌‌　　恍惚之间，来世上已有二十年了。也算是生命中的一个重要节点，当是思考人生的好时刻。‌‌‌　　过去这几年于我而言，还是很有意义的：我进一步坚定了自己的理想，也知道为了理想应当先做哪些努力；虽仍是迷茫，却也知手上该做些什么；虽仍会抱怨环境，却也清楚自己做什么才能改变现状。 ‌‌‌　　二十岁生日，是一个人度过的，就如往年在学校里过生日一般。我们家向来是没有开生日派对的传统的，亦没有礼尚往来的传统。收到过的生日礼物寥寥无几，印象最深者还是小时候老姐送的遥控小车。如今，大概就是每年和汤阳互送礼物。哦，对了，还收到过陈棵送的贴纸和毛巾。 小时候很喜欢过生日，过生日可以吃到街上一块钱一份的纸杯小蛋糕，下面是面包，上面是奶油，用小勺子挖着，边吃边走。那已是当年最大的享受。于是过生日对我而言也就是能吃个小蛋糕罢了，重要但不那么的稀奇。‌‌‌　　对于有些很在乎生日仪式感的朋友，也许会觉得我有些冷漠，不怎么祝他们生日快乐，更不曾送他们生日礼物。高中时，看到叶恒、班长等人生日人尽皆知，班里很多人送他们生日礼物，我会有些羡慕，也有些伤心，因为自己没什么好送的，他们送些值钱的东西，我最多只能去小卖部...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/e57e/" title="《流浪地球》书评"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《流浪地球》书评"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e57e/" title="《流浪地球》书评">《流浪地球》书评</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-11T16:00:00.000Z" title="Created 2024-06-12 00:00:00">2024-06-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E5%B9%BB/">科幻</a></span></div><div class="content"> 流浪地球 电影拍得很好，扩展了很多 对于感情的漠视，认为生死之外无大事，大概跟战争中漠视两性关系相近？可也不完全合理，正如三体中提到的“赋时光以生命”，更珍惜？ 人类的猜疑、怀疑、背叛，这个情节设置的很有意思。但也有矛盾，如果人不能判断太阳是否真的要发生“氦闪”，怎么说服整个世界的？如果能判断的话，又为何在太阳“回光返照”的时候怀疑呢？是判断的技术流失了？或者说，太阳出现这个状况就不合理。为了加入怀疑的情节而刻意如此。   人与吞食者 考古-土，对于这个我倒是有所体会，我去望遗址，常常会看着土发呆，想着，几千年前的人们就踩着这些土 人类之于蚂蚁帝国，吞食帝国之于人类，何其相似，我们不会在乎比我们弱小得多的生命的死活，我们不会对牛羊讲道德，侵略者为什们药呢？ 可我们人类确实能创造文明，能创造出这么璀璨的文明，为什么牛羊之类的做不到呢？人类和牛羊之间的根本区别在哪里？ 多重反转：投降-宣战-失败-被吞食-离开-留下 最后的结局确实出乎我意料，非常受触动。可是，没有人类的地球文明，与人类何干？ 吞食帝国的命运尽头是什么呢？无止境的向前，绝望地迎来最终命运。目的这么重要吗？以致于能够毫...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《羊脂球》——莫泊桑短篇小说集"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集">《羊脂球》——莫泊桑短篇小说集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-05T16:00:00.000Z" title="Created 2024-06-06 00:00:00">2024-06-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%B0%8F%E8%AF%B4/">小说</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%89%B9%E5%88%A4/">批判</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%82%B2%E6%82%AF/">悲悯</a></span></div><div class="content">莫泊桑的小说中多包含悲悯情怀，多篇写道妓女，对妓女的同情，很少有人是一开始就想当妓女的，很多是被生活所迫。伟大的作家，似乎有此共性，博爱，悲悯的爱。  月光 自然之美；月光在我心中也是极美的，尤其是到了西安之后，常觉月亮又大又亮，皎月的光华甚至能照亮前路；“轻纱”真是贴切的比喻；美！能让人的心境发生变化   项链 以前看过的版本似乎是缩减过的，如今看的更加有细节，更加震撼；结尾是欧亨利式结尾，令人感叹“虚荣”的可怕   两个朋友 钓鱼真有这么大的魅力吗？   骑马 还是虚荣惹的祸   西蒙的爸爸 这篇算是难得带有温暖的了 小孩子之间的恶意往往单纯却足以让人愤怒   小狗皮埃罗 勒费弗尔太太这样的人，很符合我对乡绅太太的印象，自命不凡，自以为善良，却只是满足自己那虚伪的良心，一旦要付出一些代价，便顾不上良心   羊脂球 无怪乎是名篇，我也才知道羊脂球是一个人 什么才是真正的教养和素养？是身份，阶级，行当？还是善良、爱国和一些内心的坚持。 这些贵族全都非常丑恶，自命不凡，自以为是，又常常为了利益而放低身段；看不起别人，自诩清高，又强迫别人去堕落；吃人嘴短，受人恩惠不说感恩，反而为了自...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/9c06/" title="《关妖精的瓶子》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《关妖精的瓶子》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记">《关妖精的瓶子》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-30T16:00:00.000Z" title="Created 2024-05-31 00:00:00">2024-05-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E5%B9%BB/">科幻</a></span></div><div class="content">蛮有意思的王瑶老师本科不愧是学物理的，前几篇文字里很有学生的味道。小说很有“点子”，很“可爱”的点。读来会让人会心一笑，不过相比何夕的小说少了一些触动，比刘慈欣的小说少了一些震撼。整体像是轻小说，读来让人轻松愉悦的小说。“稀饭科幻”名不虚传，有不少像是披着科幻外皮的言情小说，这我觉得没什么。不是所有小说都需要承担很多东西，都要去揭示什么，以前听过一句话“鲁迅很好，但不能人人都是鲁迅”，就像鲁迅的小说很有意义，但我们也需要有人来写童话。有些小说能带给人快乐就很好了。 我读过的科幻小说很少，不知道哪些点子是原创，还是有所参考借鉴等。  卡门 “文以载道”并不一定要是哲理吧，也可以是一种感受，一种情绪。 情绪感受可以成为意义本身 卡门就是这样，包含着浪漫、热情   黑猫 文笔很赞，但也有让我感到突兀的比喻 图坦卡蒙，小学时候对此还是非常好奇地，什么“图坦卡蒙的诅咒”，在《查理九世》，在动画片《奇幻龙宝》，在看过的一些猎奇的书……搞神秘悬疑的氛围，很适合 写作一定要“言之有物”吗？就像生活，一定要为了什么奋斗吗？单纯的感受、喜爱也很好啊。   断层 模仿其他人的文风写作，撑起一个“盛世”...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/1ea8/" title="《战争与和平》"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《战争与和平》"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/1ea8/" title="《战争与和平》">《战争与和平》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-26T16:00:00.000Z" title="Created 2024-05-27 00:00:00">2024-05-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%82%B2%E6%82%AF/">悲悯</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%92%9F%E7%88%B1/">钟爱</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%88%B1%E6%83%85/">爱情</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8E%86%E5%8F%B2/">历史</a></span></div><div class="content">关于拿破仑看着书中拿破仑的行为，再看看百科，了解了一下拿破仑的生平。不能不称之为传奇。可以说历史上没几个人比他更接近“成功”这个概念。可是他的人生仍然是充满遗憾的，甚至在“百日王朝”之后灰心丧气？不愿发动人民战争。对权力的欲望有止境吗？人能够一直胜利、一直成功吗？（2024.7.12补充：史铁生在《好运设计》中的探讨非常喜欢）多么传奇的拿破仑啊，经历和项羽也确实蛮像的，常常能打出以少胜多的仗。 可是全部化作尘土了。读历史总有这样的感觉。 关于娜塔莎我喜欢这样富有活力的女孩子。对一切事物保有热情，也秉持着一颗善良的心。可我又觉得她有些“没心没肺”带来的无情，多情亦是无情，对多纳托利的多情，就是对安德烈的无情。 在她看来，她不是朝三暮四，不是放荡，而是勇敢去追求自己的爱，当时她的内心强烈要求这么做。 如何看待呢？我替安德烈公爵感到非常非常难过，我替娜塔莎感到有些遗憾，我觉得她有些让人失望，有种“不干净”了的感觉。但是，“勇敢追求爱”究竟如何定义呢？“真爱”如何定义呢？是当下无与伦比的狂热与喜爱更符合“真爱”，还是偏于理性的更符合呢？ 娜塔莎这样的人，生来就是要感受快乐、喜悦的，悲伤不...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/6c45/" title="《马可瓦尔多》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《马可瓦尔多》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6c45/" title="《马可瓦尔多》读书笔记">《马可瓦尔多》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-13T16:00:00.000Z" title="Created 2024-05-14 00:00:00">2024-05-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%B0%8F%E8%AF%B4/">小说</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%8D%92%E8%AF%9E/">荒诞</a></span></div><div class="content">这本书与我真是有缘，在数量不多的书摊中看到此书。想起高中做过的阅读，《雨水和叶子》，看到后面发现《高速公路和森林》也做过 整本书让我感受到作者的描述、“讲故事”本领高超。很多处描写非常生动、细腻。  城里的蘑菇： 发现生活 长椅上的假期： 宁静 市政府的鸽子 消失在雪里的城市： 茫茫然的自由 黄蜂疗法 一个有着阳光、沙子和睡意的星期六 饭盒 高速公路上的森林： 城市对？的侵蚀？ 好空气 和奶牛们旅行 毒兔子： 兔子的心理描写非常独特，也有些哀伤 下错了的车站： 走，走，无论往哪走，似乎都比原来自由了些 在河水更蓝的地方 月亮与GNAC 雨水和叶子：高中做过的阅读，当时只觉得富有童话色彩 马可瓦尔多逛超市 烟、风和肥皂泡 属于他一个人的城市： 自由 顽固猫咪的小花园 圣诞老人的孩子  正本短篇小说虽然讲的都不是值得开心的事情，但是还是像童话一般，如梦似幻，在“社畜”的生活中，发现不同，发现奇妙。这也是我努力做的。  马可瓦尔多步行去上班，因为大雪，电车停运了。一路上，马可瓦尔多自己给自己开着路，感到从来没有如此地自由过。在城里的街道上，人行道和车行道之间的每一处差别都消失了，车辆不...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/3fe/" title="《基督山伯爵》：忍耐、等待和希望"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《基督山伯爵》：忍耐、等待和希望"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/3fe/" title="《基督山伯爵》：忍耐、等待和希望">《基督山伯爵》：忍耐、等待和希望</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-12T16:00:00.000Z" title="Created 2024-04-13 00:00:00">2024-04-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%B0%8F%E8%AF%B4/">小说</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%BF%83%E7%97%9B/">心痛</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8A%B1%E5%BF%97/">励志</a></span></div><div class="content">摘录 心灵高尚的人，祝你幸福；但愿天主为你已做和将做的善事赐福于你；但愿我的感谢如同你的善行一样不为人所知。 您不知道，整整十四年我就给关在伊夫堡的地牢里，离您才四分之一里路;您不知道，这十四年里，我天天在心里对自己重复第一天就立下的复仇誓言，可我却不知道您已经嫁给了诬告我的费尔南，也不知道我的父亲已经死了，而且是饿死的! 哦!梅塞苔丝，您的这个名字，我曾经满怀怅长吁短叹地呼唤过它，我曾经在痛苦的呻吟中呼唤过它，也曾在绝望的喘息中呼唤过它。在严寒刺骨的冬天，我在地牢的麦秸堆上冻得发抖时呼唤过它;在酷暑难熬的夏天，我在牢房的石板地上辗转反侧时呼唤过它。梅塞苔丝，我非得为自己报仇不可，因为我受了十四年折磨，我哭泣、诅咒了十四年;现在，我对您说，梅塞苔丝，我非得为自己报仇不可! 从昨天起，我明白了一个人的意志能有多大的力量。噢!母亲，有些人曾经受过那么多苦，但他们非但没有死去，而且在上天曾给过他们幸福许诺的废墟上，凭着天主曾给过他们的那点希望，重新获得了财产和幸福!我明白了，母亲，我见到过这样的人了;我知道他们是怎样凭着魄力和勇气，从仇敌把他们扔进去的深渊里爬上来，战胜他们的对手反过来...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/e9a9/" title="书评《朝闻道》"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="书评《朝闻道》"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e9a9/" title="书评《朝闻道》">书评《朝闻道》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-01T16:00:00.000Z" title="Created 2024-04-02 00:00:00">2024-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E5%B9%BB/">科幻</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%AE%89%E9%81%93/">殉道</a></span></div><div class="content">书评|《朝闻道》《朝闻道》是刘慈欣写的短篇科幻小说，大概1.2W字。书中讲了一些理论物理学家被更高级的文明告知无法通过实验来研究得到宇宙的大统一模型，为了看到大统一模型，这些物理学家愿意用生命交换对真理片刻的洞彻。为什么会去看这本书呢？我在开学初看了《奥术神座》《上帝掷骰子吗》《爱因斯坦谈人生》这三本书。在读这些书时，我常常有心潮澎湃之感。我觉得自己在初中时想的“以后想要研究物理”并不是瞎说的，我能够感受到真理的美。我想起之前看到的一段视频，2015年科学家宣布探测到引力波，“We have detected the gravitational waves.We did it!”听到他那略显平静的声音的时候，我突然有一种灵魂的战栗感。虽然爱因斯坦已去世六十余年，但我好像看见了他那深邃的眼神。广义相对论跨越百年时光，将真理之美，如此清楚地展现在我面前。知乎上关于引力波的话题下，有人推荐刘慈欣的《朝闻道》，于是有了这篇书评。《朝闻道》中的也有个丁仪，不过不是《三体》中的丁仪。丁仪为了看到宇宙的大统一模型，放弃生命，抛妻弃子。这听起来好像有些夸张，放在以前我是不能理解的，但最近我好像能...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/7ce0/" title="The Little Prince"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="The Little Prince"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7ce0/" title="The Little Prince">The Little Prince</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-30T16:00:00.000Z" title="Created 2023-10-01 00:00:00">2023-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%A2%A6%E6%83%B3/">梦想</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%8B%B1%E6%96%87/">英文</a></span></div><div class="content">The Little Prince with perhaps a hint of sadness then they would be convinced, and leave you in peace from their questions. I have had to grow old. I do not much like to take the tone of a moralist. You know-one loves the sunset, when one is so sad… The little prince never let go of a question, once he had asked it. You talk just like the grown-ups! I know a planet where there is a certain red-faced gentleman. He has never smelled a flower. He has never looked at a star. He has never loved an...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/4261.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">言照</div><div class="author-info-description">青山遮不住，毕竟东流去</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/threeyang3"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">很感谢你看我的文章，期待你的反馈。</div></div><div class="card-widget article" id="article"><div class="item-headline"><i class="fas fa-user"></i><span>了解作者</span></div><div class="item-content"><p><a href="https://threeyang3.github.io/posts/2a0d/">二十岁生日随笔</a></p> <p><a href="https://threeyang3.github.io/posts/f938/">关于写作和理想</a></p> <p><a href="https://threeyang3.github.io/posts/b258/">三观的变化</a></p></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/48e3/" title="关于这个Blog的一些说明"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于这个Blog的一些说明"/></a><div class="content"><a class="title" href="/posts/48e3/" title="关于这个Blog的一些说明">关于这个Blog的一些说明</a><time datetime="2024-07-14T16:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e57e/" title="《流浪地球》书评"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《流浪地球》书评"/></a><div class="content"><a class="title" href="/posts/e57e/" title="《流浪地球》书评">《流浪地球》书评</a><time datetime="2024-06-11T16:00:00.000Z" title="Created 2024-06-12 00:00:00">2024-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《羊脂球》——莫泊桑短篇小说集"/></a><div class="content"><a class="title" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集">《羊脂球》——莫泊桑短篇小说集</a><time datetime="2024-06-05T16:00:00.000Z" title="Created 2024-06-06 00:00:00">2024-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《关妖精的瓶子》读书笔记"/></a><div class="content"><a class="title" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记">《关妖精的瓶子》读书笔记</a><time datetime="2024-05-30T16:00:00.000Z" title="Created 2024-05-31 00:00:00">2024-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1ea8/" title="《战争与和平》"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《战争与和平》"/></a><div class="content"><a class="title" href="/posts/1ea8/" title="《战争与和平》">《战争与和平》</a><time datetime="2024-05-26T16:00:00.000Z" title="Created 2024-05-27 00:00:00">2024-05-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             
-            </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BD%B1%E8%AF%84/"><span class="card-category-list-name">影评</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">读书笔记</span><span class="card-category-list-count">29</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span class="card-category-list-count">21</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%90%86%E6%83%B3/" style="font-size: 1.45em; color: rgb(156, 200, 96)">理想</a><a href="/tags/%E7%BB%8F%E5%85%B8/" style="font-size: 1.4em; color: rgb(160, 74, 128)">经典</a><a href="/tags/%E8%8B%B1%E6%96%87/" style="font-size: 1.15em; color: rgb(96, 166, 96)">英文</a><a href="/tags/%E5%93%B2%E6%80%9D/" style="font-size: 1.3em; color: rgb(28, 105, 180)">哲思</a><a href="/tags/%E8%8B%A6%E9%9A%BE/" style="font-size: 1.2em; color: rgb(14, 116, 33)">苦难</a><a href="/tags/%E6%95%85%E4%B9%A1/" style="font-size: 1.25em; color: rgb(22, 156, 178)">故乡</a><a href="/tags/%E6%95%A3%E6%96%87/" style="font-size: 1.25em; color: rgb(39, 171, 79)">散文</a><a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 1.2em; color: rgb(22, 90, 53)">科普</a><a href="/tags/%E7%89%A9%E7%90%86/" style="font-size: 1.2em; color: rgb(120, 148, 165)">物理</a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 1.45em; color: rgb(200, 25, 155)">科幻</a><a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 1.15em; color: rgb(3, 27, 53)">概率论</a><a href="/tags/%E7%A4%BE%E7%A7%91/" style="font-size: 1.25em; color: rgb(194, 157, 74)">社科</a><a href="/tags/%E4%B9%A1%E6%9D%91/" style="font-size: 1.15em; color: rgb(173, 114, 82)">乡村</a><a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.15em; color: rgb(183, 117, 146)">哲学</a><a href="/tags/%E5%AD%A4%E7%8B%AC/" style="font-size: 1.2em; color: rgb(7, 166, 146)">孤独</a><a href="/tags/%E6%AE%89%E9%81%93/" style="font-size: 1.2em; color: rgb(53, 117, 138)">殉道</a><a href="/tags/%E9%B2%81%E8%BF%85/" style="font-size: 1.15em; color: rgb(50, 46, 174)">鲁迅</a><a href="/tags/%E7%8E%B0%E5%AE%9E/" style="font-size: 1.15em; color: rgb(15, 8, 63)">现实</a><a href="/tags/%E6%89%B9%E5%88%A4/" style="font-size: 1.3em; color: rgb(145, 161, 39)">批判</a><a href="/tags/%E6%82%B2%E6%82%AF/" style="font-size: 1.25em; color: rgb(101, 132, 151)">悲悯</a><a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 1.15em; color: rgb(137, 0, 118)">爱情</a><a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.2em; color: rgb(122, 129, 169)">历史</a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 1.45em; color: rgb(88, 30, 105)">小说</a><a href="/tags/%E6%82%B2%E5%89%A7/" style="font-size: 1.25em; color: rgb(196, 0, 10)">悲剧</a><a href="/tags/%E5%B8%8C%E6%9C%9B/" style="font-size: 1.15em; color: rgb(9, 80, 153)">希望</a><a href="/tags/%E8%BE%A9%E8%AF%81/" style="font-size: 1.4em; color: rgb(171, 138, 57)">辩证</a><a href="/tags/%E4%B8%89%E8%A7%82/" style="font-size: 1.15em; color: rgb(40, 134, 164)">三观</a><a href="/tags/%E5%AE%B6%E4%BA%BA/" style="font-size: 1.15em; color: rgb(76, 73, 73)">家人</a><a href="/tags/%E5%BE%80%E4%BA%8B/" style="font-size: 1.35em; color: rgb(81, 132, 87)">往事</a><a href="/tags/%E5%84%BF%E7%AB%A5/" style="font-size: 1.15em; color: rgb(139, 199, 115)">儿童</a><a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 1.3em; color: rgb(143, 191, 111)">写作</a><a href="/tags/%E5%8D%A1%E5%B0%94%E7%BB%B4%E8%AF%BA/" style="font-size: 1.15em; color: rgb(188, 76, 160)">卡尔维诺</a><a href="/tags/%E8%8D%92%E8%AF%9E/" style="font-size: 1.15em; color: rgb(176, 47, 49)">荒诞</a><a href="/tags/%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96/" style="font-size: 1.15em; color: rgb(152, 143, 52)">传统文化</a><a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 1.2em; color: rgb(161, 73, 27)">书评</a><a href="/tags/%E9%9A%94%E9%98%82/" style="font-size: 1.15em; color: rgb(58, 125, 143)">隔阂</a><a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 1.35em; color: rgb(5, 126, 91)">个人</a><a href="/tags/%E7%90%86%E6%83%B3%E4%B9%A1/" style="font-size: 1.15em; color: rgb(114, 70, 166)">理想乡</a><a href="/tags/%E8%B0%A3%E8%A8%80/" style="font-size: 1.15em; color: rgb(99, 189, 142)">谣言</a><a href="/tags/%E4%BD%9B%E7%B3%BB/" style="font-size: 1.2em; color: rgb(137, 122, 124)">佛系</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">52</div></div><div class="webinfo-item"><div class="item-name">Run time :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-07-02T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">124.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-17T13:08:57.130Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/bk1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By 言照</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Thank you for reading!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
-  endLoading: () => {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loading-box').classList.add("loaded")
-  },
-  initLoading: () => {
-    document.body.style.overflow = '';
-    document.getElementById('loading-box').classList.remove("loaded")
-
-  }
-}
-window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+          </div>
+          <ul class="card-category-list expandBtn" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BD%B1%E8%AF%84/"><span class="card-category-list-name">影评</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">读书笔记</span><span class="card-category-list-count">29</span></a></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span class="card-category-list-count">21</span><i class="fas fa-caret-left expand"></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/%E4%B9%A6%E8%AF%84/"><span class="card-category-list-name">书评</span><span class="card-category-list-count">1</span></a></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 1.2em; color: rgb(50, 188, 123);">科普</a><a href="/tags/%E7%89%A9%E7%90%86/" style="font-size: 1.2em; color: rgb(56, 90, 191);">物理</a><a href="/tags/%E6%A2%A6%E6%83%B3/" style="font-size: 1.45em; color: rgb(143, 67, 181);">梦想</a><a href="/tags/%E8%8B%B1%E6%96%87/" style="font-size: 1.15em; color: rgb(170, 123, 50);">英文</a><a href="/tags/%E5%93%B2%E6%80%9D/" style="font-size: 1.35em; color: rgb(79, 50, 110);">哲思</a><a href="/tags/%E8%8B%A6%E9%9A%BE/" style="font-size: 1.2em; color: rgb(50, 109, 50);">苦难</a><a href="/tags/%E6%95%85%E4%B9%A1/" style="font-size: 1.25em; color: rgb(50, 141, 50);">故乡</a><a href="/tags/%E6%95%A3%E6%96%87/" style="font-size: 1.25em; color: rgb(108, 50, 61);">散文</a><a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 1.15em; color: rgb(93, 50, 50);">概率论</a><a href="/tags/%E7%A4%BE%E7%A7%91/" style="font-size: 1.25em; color: rgb(64, 102, 50);">社科</a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 1.45em; color: rgb(111, 141, 181);">科幻</a><a href="/tags/%E6%AE%89%E9%81%93/" style="font-size: 1.2em; color: rgb(122, 177, 162);">殉道</a><a href="/tags/%E4%B9%A1%E6%9D%91/" style="font-size: 1.15em; color: rgb(70, 89, 195);">乡村</a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 1.45em; color: rgb(97, 73, 102);">小说</a><a href="/tags/%E5%BF%83%E7%97%9B/" style="font-size: 1.25em; color: rgb(133, 50, 182);">心痛</a><a href="/tags/%E5%8A%B1%E5%BF%97/" style="font-size: 1.15em; color: rgb(50, 50, 130);">励志</a><a href="/tags/%E5%AD%A4%E7%8B%AC/" style="font-size: 1.2em; color: rgb(132, 74, 50);">孤独</a><a href="/tags/%E7%BB%8F%E5%85%B8/" style="font-size: 1.3em; color: rgb(159, 187, 157);">经典</a><a href="/tags/%E7%8E%B0%E5%AE%9E/" style="font-size: 1.15em; color: rgb(50, 50, 177);">现实</a><a href="/tags/%E6%89%B9%E5%88%A4/" style="font-size: 1.3em; color: rgb(90, 103, 110);">批判</a><a href="/tags/%E6%82%B2%E6%82%AF/" style="font-size: 1.25em; color: rgb(199, 149, 50);">悲悯</a><a href="/tags/%E9%92%9F%E7%88%B1/" style="font-size: 1.15em; color: rgb(122, 124, 112);">钟爱</a><a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 1.15em; color: rgb(50, 117, 151);">爱情</a><a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.2em; color: rgb(71, 50, 87);">历史</a><a href="/tags/%E8%BE%A9%E8%AF%81/" style="font-size: 1.4em; color: rgb(73, 144, 50);">辩证</a><a href="/tags/%E5%BE%80%E4%BA%8B/" style="font-size: 1.35em; color: rgb(50, 50, 118);">往事</a><a href="/tags/%E4%BA%B2%E6%83%85/" style="font-size: 1.15em; color: rgb(193, 98, 179);">亲情</a><a href="/tags/%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96/" style="font-size: 1.15em; color: rgb(50, 50, 179);">传统文化</a><a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 1.3em; color: rgb(50, 91, 149);">写作</a><a href="/tags/%E9%9A%94%E9%98%82/" style="font-size: 1.15em; color: rgb(50, 127, 91);">隔阂</a><a href="/tags/%E4%B8%89%E8%A7%82/" style="font-size: 1.15em; color: rgb(157, 90, 189);">三观</a><a href="/tags/%E7%90%86%E6%83%B3%E4%B9%A1/" style="font-size: 1.15em; color: rgb(86, 74, 67);">理想乡</a><a href="/tags/%E4%BD%9B%E7%B3%BB/" style="font-size: 1.2em; color: rgb(69, 134, 84);">佛系</a><a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 1.35em; color: rgb(99, 177, 50);">个人</a><a href="/tags/%E8%B0%A3%E8%A8%80/" style="font-size: 1.15em; color: rgb(189, 150, 136);">谣言</a><a href="/tags/%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7/" style="font-size: 1.15em; color: rgb(139, 194, 65);">不确定性</a><a href="/tags/%E5%91%BD%E8%BF%90/" style="font-size: 1.15em; color: rgb(72, 50, 182);">命运</a><a href="/tags/%E8%8D%92%E8%AF%9E/" style="font-size: 1.15em; color: rgb(50, 176, 125);">荒诞</a><a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 1.15em; color: rgb(50, 125, 135);">文学</a><a href="/tags/%E6%B4%BB%E5%9C%A8%E5%BD%93%E4%B8%8B/" style="font-size: 1.15em; color: rgb(105, 148, 68);">活在当下</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      <a class="card-more-btn" href="/archives/"
+            title="View More">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/07/">
+            <span class="card-archive-list-date">
+              七月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/06/">
+            <span class="card-archive-list-date">
+              六月 2024
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/05/">
+            <span class="card-archive-list-date">
+              五月 2024
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/04/">
+            <span class="card-archive-list-date">
+              四月 2024
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/10/">
+            <span class="card-archive-list-date">
+              十月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/09/">
+            <span class="card-archive-list-date">
+              九月 2023
+            </span>
+            <span class="card-archive-list-count">12</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/08/">
+            <span class="card-archive-list-date">
+              八月 2023
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/06/">
+            <span class="card-archive-list-date">
+              六月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">52</div></div><div class="webinfo-item"><div class="item-name">Total Word Count :</div><div class="item-count">124.5k</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-05-04T11:27:42.593Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By 言照</span></div><div class="footer_custom_text">Thank you for reading!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

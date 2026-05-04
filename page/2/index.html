@@ -1,251 +1,226 @@
-<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Threeyang's blog</title><meta name="keywords" content="读书 写作 计算机"><meta name="author" content="言照"><meta name="copyright" content="言照"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="青山遮不住，毕竟东流去">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Threeyang&#39;s blog">
-<meta property="og:url" content="http://threeyang3.github.io/page/2/index.html">
-<meta property="og:site_name" content="Threeyang&#39;s blog">
-<meta property="og:description" content="青山遮不住，毕竟东流去">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://threeyang3.github.io/img/4261.JPG">
-<meta property="article:author" content="言照">
-<meta property="article:tag" content="读书 写作 计算机">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://threeyang3.github.io/img/4261.JPG"><link rel="shortcut icon" href="/img/logo.ico"><link rel="canonical" href="http://threeyang3.github.io/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Threeyang's blog</title><meta name="author" content="言照"><meta name="copyright" content="言照"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="青山遮不住，毕竟东流去"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/logo.ico"><link rel="canonical" href="http://threeyang3.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
   },
   relativeDate: {
     homepage: false,
     post: false
   },
-  runtime: 'days',
-  date_suffix: {
-    just: 'Just',
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
     min: 'minutes ago',
     hour: 'hours ago',
     day: 'days ago',
     month: 'months ago'
   },
   copyright: undefined,
-  lightbox: 'fancybox',
+  lightbox: 'null',
   Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
   },
   isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'Threeyang\'s blog',
-  isPost: false,
-  isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-07-17 21:08:57'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/4261.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> All</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Articles</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-pencil"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Douban</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> movies</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Others</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/bk1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Threeyang's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> All</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Articles</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-pencil"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Douban</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> movies</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Others</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Threeyang's blog</h1><div id="site_social_icons"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/9cb3/" title="《人生的智慧》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《人生的智慧》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/9cb3/" title="《人生的智慧》读书笔记">《人生的智慧》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-27T16:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BB%8F%E5%85%B8/">经典</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%93%B2%E5%AD%A6/">哲学</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%AD%A4%E7%8B%AC/">孤独</a></span></div><div class="content">读书笔记|《人生的智慧》摘录一级列表是标题。（）中是我的标注。
-
-如何理解叔本华？ ——邓晓芒
-我们中国人评价一个学者，通常离不开他个人的人品，讲究“文如其人”“道德即文章”，言传身教、表里如一。一个人在道德上站不住脚而不因人废言者，两千年来几乎找不出一人。当然并不是说中国的学者全都是道德高尚的君子，但至少总得“为尊者讳”，或者将其缺点视为“小节”，才能大体上马虎得过去。
-这些哲学家所谈的并不是他自己怎样生活，而是应当怎样生活。我是讲美德，而不是讲我自己；我与恶行作斗争，其中也包括我自己的恶行；只要我能够，我就要像应当的那样生活。——塞涅卡
-
-
-自我是决定幸福与否的主要因素
-个体的精髓正是其意识的构成
-健康的乞丐比体弱多病的国王更快乐
-人生的真谛在于遵从个性
-试想一个人如赫拉克勒斯般力大无穷，却迫于外因不得不伏案工作，做精细的手工活，又或是从事他不具备优势的脑力劳动，也就是说，他被迫去做他不擅长的工作，而他得天独厚的强项却遭到荒废。若陷入此般境地，人终其一生都将与快乐无缘。更可悲的是，一个智慧超群的人，从事着无法发挥自己才能的平庸工作，又或者是他不擅长的体力劳动，不得不任由智力荒废。对 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/6f7b/" title="《自控力·和压力做朋友》"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《自控力·和压力做朋友》"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6f7b/" title="《自控力·和压力做朋友》">《自控力·和压力做朋友》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-27T16:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A4%BE%E7%A7%91/">社科</a></span></div><div class="content">读书笔记|《自控力·和压力做朋友》摘录
-害怕、耻辱、自责、羞愧，所有这些都被健康专业人士视为提升人们幸福感的驱动因素。然而，当被放进科学实验时，这些信息会推动人们采取健康专家本希望改变的行为。我看到悲惨场面不断上演：好心的医生和心理学家传递他们认为有益的信息，接受者被狂轰滥炸，情绪低落，最终被逼采取相应的医生和心理学家不愿意看到的自毁行为。
-压力就是你在乎的东西发生危险时引起的反应。……压力和意义无法分割。对不在乎的事情，你不会感到压力；不经受压力，你也无法开创有意义的生活。
-如何看待某样东西，会转化它对你的影响。
-当两种结果都有可能时，人们的期望会影响哪个结果更容易出现。
-如何看待变老是通过影响你的目标和选择，来影响健康和寿命的，而不是某些积极思考的神秘力量。
-面对困难迎头而上，而不是企图逃避或否认，你就强化了应对压力的资源。你对处理生活挑战的能力更自信，你就建立了更强大的社会支持系统。能管理的问题得到处理，而不是恶性循环失去控制，不能掌控的情景就变成了成长机会。这样，如同其他思维模式一样，压力有益的信念成了自我实现预言。
-承认压力的存在-欢迎压力-运用压力给你的能量。
-最有帮助的压 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/b550/" title="《七堂极简物理课》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《七堂极简物理课》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/b550/" title="《七堂极简物理课》读书笔记">《七堂极简物理课》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-24T16:00:00.000Z" title="Created 2023-09-25 00:00:00">2023-09-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E6%99%AE/">科普</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E7%89%A9%E7%90%86/">物理</a></span></div><div class="content">摘录
-目录
-最美的理论
-量子
-宇宙的构造
-粒子
-空间的颗粒
-概率、时间和黑洞的热
-我们
-
-
-因为没有学校课业的打扰，学生在假期里往往能更专注地学习。
-总之，爱因斯坦的理论为我们描绘了一个绚丽多彩而又令人惊奇的世界，在这个世界里有发生爆炸的宇宙，有坍塌成无底深洞的空间，有在某个行星附近放慢速度的时间，还有像大海扬波一般无边无际延展的星际空间……我那本被老鼠咬破的书把这一切一一呈现在我面前，这并非痴人在犯傻时随口编的故事，也不是卡拉布里亚那地中海的骄阳让我晕头转向，更不是那粼粼的海水让我产生幻觉。这些都是事实，或者更确切地说，是对事实的惊鸿一瞥，比我们平日里模糊庸常的见解要高明一点。这样的事实看似和我们的梦境有着同样的材质，但无论如何的确比我们平日那些云雾般的梦境更为真实。
-爱因斯坦去世的时候，玻尔——他最强劲的对手——表达了对他的敬仰之情，感人至深。几年后，当玻尔也去世的时候，有人拍下了他书房黑板的照片。黑板上画着一幅图，是爱因斯坦思想实验中那个“充满光的盒子”。直到生命的最后一刻，他仍在挑战自己，仍然想要知道得更多。直到最后一刻，他仍未停止怀疑。
-屈指可数的几种基本粒子，不断地在存在和 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/8e90/" title="《时间简史》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《时间简史》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8e90/" title="《时间简史》读书笔记">《时间简史》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-24T16:00:00.000Z" title="Created 2023-09-25 00:00:00">2023-09-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E6%99%AE/">科普</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E7%89%A9%E7%90%86/">物理</a></span></div><div class="content">摘录
-然而，如果的确存在一个完备的统一理论，它也很可能决定我们的行动——于是，理论本身会决定我们寻求它的结果！而为什么它必须决定我们从这些证据中得到正确的结论？难道它不会同样地决定我们得出错误的结论吗？或者根本没有结论？
-实际上，缺乏静止的绝对标准在物理学上含意深远：它意味着，我们不能确定发生在不同时间的两个事件是否发生在空间中的相同位置上。除非历史已经表明，你曾经到达过去，并且当时并没有杀死你的曾曾祖父，或者没有采取任何行为，这些行为和到达你现状的历史相冲突，你才能在时间中回到过去。况且，当你回到过去，你不能改变记载的历史，你仅仅是跟随着它。按照这一观点，过去和将来是注定的：你没有自由意志为所欲为。
-我们说人类具有自由意志，那是因为我们不能够预言他们未来的行为。然而，如果一个人乘火箭飞船出发并在这之前已经返回，因为他的未来行为是记载的历史的一部分，所以我们就能够预言之。这样，在那种情形下，时间旅行者在任何意义上都没有自由意志。
-解决时间旅行佯谬的其他可能方法可以称做选择历史假想。其思想是，当时间旅行者回到过去，他们进入和记载的历史不同的另外的历史中去，这样，他们可自由地行动，不受他们 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/f9ce/" title="《乡土中国》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《乡土中国》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/f9ce/" title="《乡土中国》读书笔记">《乡土中国》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-23T16:00:00.000Z" title="Created 2023-09-24 00:00:00">2023-09-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A4%BE%E7%A7%91/">社科</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E4%B9%A1%E6%9D%91/">乡村</a></span></div><div class="content">读书笔记|《乡土中国》摘录
-乡土本色
-从土里长出过光荣的历史，自然也会受到土的束缚，现在很有些飞不上天的样子。
-靠种地谋生的人才明白泥土的可贵。城里人可以用土气来藐视乡下人，但是乡下，“土”是他们的命根。
-乡土社会在地方性的限制下成了生于斯、死于斯的社会。常态的生活是终老是乡。假如在一个村子里的人都是这样的话，在人和人的关系上也就发生了一种特色，每个孩子都是在人家眼中看着长大的，在孩子眼里周围的人也是从小就看惯的。这是一个“熟悉”的社会，没有陌生人的社会。
-“学”是和陌生事物的最初接触，“习”是陶炼，“不亦说乎”是描写熟悉之后的亲密感觉。在一个熟悉的社会中，我们会得到从心所欲不逾矩的自由。
-乡土社会的信用并不是对契约的重视，而是发生于对一种行为的规矩熟悉到不假思索时的可靠性。
-在乡土社会中生长的人似乎不太追求这笼罩万有的真理。我读《论语》时，看到孔子在不同人面前说着不同的话来解释“孝”的意义时，我感觉到这乡土社会的特性了。孝是什么？孔子没有抽象地加以说明，而是列举具体的行为，因人而异地答复了他的学生。最后甚至归结到“心安”二字。做子女的得在日常接触中去摸熟父母的性格，然后去承他们的欢， ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/4010/" title="《金蔷薇》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《金蔷薇》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/4010/" title="《金蔷薇》读书笔记">《金蔷薇》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-22T16:00:00.000Z" title="Created 2023-09-23 00:00:00">2023-09-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%86%99%E4%BD%9C/">写作</a></span></div><div class="content">摘录
-每一分钟，每一个在无意中说出来的字眼，每一个无心的流盼，每一个深刻的或者戏谑的想法，人的心脏的每一次觉察不到的搏动，一如杨树的飞絮或者夜间映在水洼中的星光——无不都是一粒粒金粉。  我们，文学家们，以数十年的时间筛取着数以百万计的这种微尘，不知不觉地把它们聚集拢来，熔成金，然后将其锻造成我们的“金蔷薇”——中篇小说、长篇小说或者长诗。
-一个作家，只有当他确信自己的良心同他人的良心一致的时候，才会充分感到欢乐。 ——萨尔蒂科夫-谢德林
-就这样，我第一次证实了对作家来说最主要的是，在任何作品中，甚至是在这样一篇短短的小说中，都要毫无保留、毫不吝啬地表达自己，从而表达自己的时代、自己的人民。任何情况——无论是不必要地担心自己在读者面前出丑，无论是生怕重复（当然是用另一种方式）其他作家已经说过的话，无论是对批评家和编辑的顾虑，都不应该阻止一个作家去表达自己的思想感情。  在写作的时候应该忘掉一切，好像这是在写给自己看，或者世上最亲近的人看的。  必须让自己的内心世界自由驰骋，必须为它打开所有的闸门，于是你就会突然惊异地发现你意识中所蕴含的思想、感情和诗的力量远比你想象的要多。
-至于说到我 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/23b2/" title="《文化苦旅》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《文化苦旅》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/23b2/" title="《文化苦旅》读书笔记">《文化苦旅》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-19T16:00:00.000Z" title="Created 2023-09-20 00:00:00">2023-09-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%A3%E6%96%87/">散文</a></span></div><div class="content">摘录
-我发现，自己特别想去的地方，总是古代文人留下较深脚印的所在，说明我心底的山水并不完全是自然山水，而是一种“人文山水”。这是历史文化长期熏染的结果，要摆脱也摆脱不了。每到一个地方，总有一种沉重的历史气压罩住我的全身，使我无端地感动，无端地喟叹。常常像傻瓜一样木然伫立着，一会儿满脑章句，一会儿满脑空白。  我站在古人一定站过的地方，用先辈同样的黑眼珠打量着差不多的自然景观，静听着与千百年前没有丝毫差异的风声鸟声，产生了一种特别的感觉。中国文化的真实步履，正是贮存在这山重水复、莽莽苍苍的大地上。大地默默无言，只要来一两个有悟性的文人一站立，它封存久远的文化内涵也就能哗的一生奔泻而出；文人本也萎靡柔弱，只要为这种奔泻所裹卷，倒也能吞吐千年。
-水，看似柔顺无骨，却能变得气势滚滚，波涌浪叠，无比强大；看似无色无味，却能挥洒出茫茫绿野，累累硕果，万紫千红；看似自处低下，却能蒸腾九霄，为云为雨，为虹为霞…… #道德经 
-向往峰巅，向往高度，结果峰巅只是一道刚能立足的狭地。不能横行，不能直走，只享一时俯视之乐，怎可长久驻足安坐？上已无路，下又艰难，我感到从未有过的孤独与惶恐。
-茫茫沙漠，滔滔流水， ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/d743/" title="《一个人的村庄》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《一个人的村庄》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/d743/" title="《一个人的村庄》读书笔记">《一个人的村庄》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-17T16:00:00.000Z" title="Created 2023-09-18 00:00:00">2023-09-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%85%E4%B9%A1/">故乡</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E6%95%A3%E6%96%87/">散文</a></span></div><div class="content">喜欢的几篇
-寒风吹彻
-树会记住很多事情
-家园荒芜
-远远的敲门声
-我的死
-今生今世的证据
-我受的教育
-
-摘录
-人在回家的路上一步步长成大人，出门时是个孩子，回到家已成老人。风改变了所有人的一生。我们都不知道风改变了所有人的一生。我们长大、长老，然后死去，刮过村庄的一场风还没有停。
-
-我感到满世界只剩下我一个人。多少个夜晚我趴在这个小窗口，望着村后黑糊糊的无限荒野，就真切地感到我是最后面的一个人。  我倾听着一夜一夜穿过荒野橐橐而来的陌生声音，冥想它们是来自遥远年代的失败的一群，被我们抛弃的一群，在浩茫的时间之野上重新强大起来，它们循着岁月追赶而来，年月是我们的路，我们害怕自己在时间中迷失，所以创造了纪元、年、月、日，这些人为的标记也为我们留下了清晰的走向和踪迹。
-
-人们向未来奔跑，寄希望于未来，在更加空茫的未来，我们真能获得一种强大的力量来抵挡过去。
-
-孩子打好水，脸盆放在地上，跑到院门口，看见父亲还在远处的田野里走着，独独的一个人，一摇一晃的。他的影子像一渠水，悠扬地朝家里流淌着。
-
-似乎我们成了一个周转站，生活对我们好一点，我们给身边事物的关爱就会多一点。我们没能像继续粮食一样在心中 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/46b1/" title="《呐喊·彷徨》读书笔记"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《呐喊·彷徨》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/46b1/" title="《呐喊·彷徨》读书笔记">《呐喊·彷徨》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-16T16:00:00.000Z" title="Created 2023-09-17 00:00:00">2023-09-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BB%8F%E5%85%B8/">经典</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E9%B2%81%E8%BF%85/">鲁迅</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E7%8E%B0%E5%AE%9E/">现实</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E6%89%B9%E5%88%A4/">批判</a></span></div><div class="content">摘录
-我感到未尝经验的无聊，是自此以后的事。我当初是不知其所以然的；后来想，凡有一人的主张，得了赞和，是促其前进的，得了反对，是促其奋斗的，独有叫喊于生人中，而生人并无反应，既非赞同，也无反对，如置身毫无边际的荒原，无可措手的了，这是怎样的悲哀呵，我于是以我所感到者为寂寞。
-
-“假如一间铁屋子，是绝无窗户而万难破毁的，里面有许多熟睡的人们，不久都要闷死了，然而是从昏睡入死灭，并不感到就死的悲哀。现在你大嚷起来，惊起了较为清醒的几个人，使这不幸的少数者来受无可挽救的临终的苦楚，你倒以为对得起他们么？”  “然而几个人既然起来，你不能说绝没有毁坏这铁屋的希望。”
-
-在我自己，本以为现在是已经并非一个切迫而不能已于言的人了，但或者也还未能忘怀于当日自己的寂寞的悲哀罢，所以有时候仍不免呐喊几声，聊以慰藉那在寂寞里奔驰的猛士，使他不惮于前驱。
-
-这一学年没有完毕，我已经到了东京了，因为从那一回以后，我便觉得医学并非一件紧要事，凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客，病死多少是不必以为不幸的。
-
-从来如此，便对么？ ——《狂人日记》
-
-我想：我竟与闰土隔绝到 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/cc1/" title="《草房子》书评"><img class="post_bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《草房子》书评"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/cc1/" title="《草房子》书评">《草房子》书评</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-15T16:00:00.000Z" title="Created 2023-09-16 00:00:00">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%A4%E7%8B%AC/">孤独</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%84%BF%E7%AB%A5/">儿童</a></span></div><div class="content">非常非常好看的一部小说，为小时候没看感到一丝遗憾，但现在看也别有一番味道。
-这部小说好就好在那种氛围感、朦胧感、孤独感、成长干，就像我之前看的哪本书呢？《此间的少年》是有些像的。现在我的表达能力很难说出它到底哪里好。那就留给以后来说吧。
-我现在想说的是它带给我的思考。
-当下该如何感动儿童？曹文轩的《追随永恒》给出了答案。
-
-孩子——这些未长大成人的人，首先一点依旧：他们是能够被感动的。其次：能感动他们的东西无非也还是那些东西——生离死别、游驻聚散、悲悯情怀、厄运中的相扶、困境中的相助、孤独中的理解、冷漠中的脉脉温馨和殷殷情爱……总而言之，自有文学以来，无论是抒情的浪漫主义还是写实的现实主义，它们所用来做“感动”文章的那些东西，依然有效——我们大概也很难在有新的感动招数。
-
-
-感动他们的，应是道义的力量、情感的力量、智慧的力量和美的力量，而这一切是永在的。只要你曾真诚地生活过，只要你又能真诚地写出来，总会感动人的。你有你的生活——你最有权利动用的生活，正是与你的命运、与你的爱恨相织一体的生活。动用这样的生活，是最科学的写作行为。我们唯一要记住的是，感动人的那些东西是千古不变的，我们只不过 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/4261.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">言照</div><div class="author-info__description">青山遮不住，毕竟东流去</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/threeyang3"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">很感谢你看我的文章，期待你的反馈。</div></div><div class="card-widget article" id="article"><div class="item-headline"><i class="fas fa-user"></i><span>了解作者</span></div><div class="item-content"><p><a href="https://threeyang3.github.io/posts/2a0d/">二十岁生日随笔</a></p> <p><a href="https://threeyang3.github.io/posts/f938/">关于写作和理想</a></p> <p><a href="https://threeyang3.github.io/posts/b258/">三观的变化</a></p></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/48e3/" title="关于这个Blog的一些说明"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于这个Blog的一些说明"/></a><div class="content"><a class="title" href="/posts/48e3/" title="关于这个Blog的一些说明">关于这个Blog的一些说明</a><time datetime="2024-07-14T16:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e57e/" title="《流浪地球》书评"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《流浪地球》书评"/></a><div class="content"><a class="title" href="/posts/e57e/" title="《流浪地球》书评">《流浪地球》书评</a><time datetime="2024-06-11T16:00:00.000Z" title="Created 2024-06-12 00:00:00">2024-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《羊脂球》——莫泊桑短篇小说集"/></a><div class="content"><a class="title" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集">《羊脂球》——莫泊桑短篇小说集</a><time datetime="2024-06-05T16:00:00.000Z" title="Created 2024-06-06 00:00:00">2024-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《关妖精的瓶子》读书笔记"/></a><div class="content"><a class="title" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记">《关妖精的瓶子》读书笔记</a><time datetime="2024-05-30T16:00:00.000Z" title="Created 2024-05-31 00:00:00">2024-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1ea8/" title="《战争与和平》"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《战争与和平》"/></a><div class="content"><a class="title" href="/posts/1ea8/" title="《战争与和平》">《战争与和平》</a><time datetime="2024-05-26T16:00:00.000Z" title="Created 2024-05-27 00:00:00">2024-05-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/url(https:/images8.alphacoders.com/106/1061713.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/4261.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> All</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Articles</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-pencil"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Douban</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> movies</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Others</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/bk1.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Threeyang's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> All</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Articles</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-pencil"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Douban</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> books</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> movies</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Others</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Threeyang's blog</h1><div id="site_social_icons"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/9cb3/" title="《人生的智慧》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《人生的智慧》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/9cb3/" title="《人生的智慧》读书笔记">《人生的智慧》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-27T16:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%93%B2%E6%80%9D/">哲思</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%A4%E7%8B%AC/">孤独</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BB%8F%E5%85%B8/">经典</a></span></div><div class="content">读书笔记|《人生的智慧》摘录一级列表是标题。（）中是我的标注。  如何理解叔本华？ ——邓晓芒 我们中国人评价一个学者，通常离不开他个人的人品，讲究“文如其人”“道德即文章”，言传身教、表里如一。一个人在道德上站不住脚而不因人废言者，两千年来几乎找不出一人。当然并不是说中国的学者全都是道德高尚的君子，但至少总得“为尊者讳”，或者将其缺点视为“小节”，才能大体上马虎得过去。 这些哲学家所谈的并不是他自己怎样生活，而是应当怎样生活。我是讲美德，而不是讲我自己；我与恶行作斗争，其中也包括我自己的恶行；只要我能够，我就要像应当的那样生活。——塞涅卡   自我是决定幸福与否的主要因素 个体的精髓正是其意识的构成 健康的乞丐比体弱多病的国王更快乐 人生的真谛在于遵从个性 试想一个人如赫拉克勒斯般力大无穷，却迫于外因不得不伏案工作，做精细的手工活，又或是从事他不具备优势的脑力劳动，也就是说，他被迫去做他不擅长的工作，而他得天独厚的强项却遭到荒废。若陷入此般境地，人终其一生都将与快乐无缘。更可悲的是，一个智慧超群的人，从事着无法发挥自己才能的平庸工作，又或者是他不擅长的体力劳动，不得不任由智力荒...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/6f7b/" title="《自控力·和压力做朋友》"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《自控力·和压力做朋友》"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6f7b/" title="《自控力·和压力做朋友》">《自控力·和压力做朋友》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-27T16:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A4%BE%E7%A7%91/">社科</a></span></div><div class="content">读书笔记|《自控力·和压力做朋友》摘录 害怕、耻辱、自责、羞愧，所有这些都被健康专业人士视为提升人们幸福感的驱动因素。然而，当被放进科学实验时，这些信息会推动人们采取健康专家本希望改变的行为。我看到悲惨场面不断上演：好心的医生和心理学家传递他们认为有益的信息，接受者被狂轰滥炸，情绪低落，最终被逼采取相应的医生和心理学家不愿意看到的自毁行为。 压力就是你在乎的东西发生危险时引起的反应。……压力和意义无法分割。对不在乎的事情，你不会感到压力；不经受压力，你也无法开创有意义的生活。 如何看待某样东西，会转化它对你的影响。 当两种结果都有可能时，人们的期望会影响哪个结果更容易出现。 如何看待变老是通过影响你的目标和选择，来影响健康和寿命的，而不是某些积极思考的神秘力量。 面对困难迎头而上，而不是企图逃避或否认，你就强化了应对压力的资源。你对处理生活挑战的能力更自信，你就建立了更强大的社会支持系统。能管理的问题得到处理，而不是恶性循环失去控制，不能掌控的情景就变成了成长机会。这样，如同其他思维模式一样，压力有益的信念成了自我实现预言。 承认压力的存在-欢迎压力-运用压力给你的能量。 最有帮...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/b550/" title="《七堂极简物理课》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《七堂极简物理课》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/b550/" title="《七堂极简物理课》读书笔记">《七堂极简物理课》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-24T16:00:00.000Z" title="Created 2023-09-25 00:00:00">2023-09-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E6%99%AE/">科普</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%89%A9%E7%90%86/">物理</a></span></div><div class="content">摘录 目录 最美的理论 量子 宇宙的构造 粒子 空间的颗粒 概率、时间和黑洞的热 我们   因为没有学校课业的打扰，学生在假期里往往能更专注地学习。 总之，爱因斯坦的理论为我们描绘了一个绚丽多彩而又令人惊奇的世界，在这个世界里有发生爆炸的宇宙，有坍塌成无底深洞的空间，有在某个行星附近放慢速度的时间，还有像大海扬波一般无边无际延展的星际空间……我那本被老鼠咬破的书把这一切一一呈现在我面前，这并非痴人在犯傻时随口编的故事，也不是卡拉布里亚那地中海的骄阳让我晕头转向，更不是那粼粼的海水让我产生幻觉。这些都是事实，或者更确切地说，是对事实的惊鸿一瞥，比我们平日里模糊庸常的见解要高明一点。这样的事实看似和我们的梦境有着同样的材质，但无论如何的确比我们平日那些云雾般的梦境更为真实。 爱因斯坦去世的时候，玻尔——他最强劲的对手——表达了对他的敬仰之情，感人至深。几年后，当玻尔也去世的时候，有人拍下了他书房黑板的照片。黑板上画着一幅图，是爱因斯坦思想实验中那个“充满光的盒子”。直到生命的最后一刻，他仍在挑战自己，仍然想要知道得更多。直到最后一刻，他仍未停止怀疑。 屈指可数的几种基本粒子，不断地在...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/8e90/" title="《时间简史》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《时间简史》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8e90/" title="《时间简史》读书笔记">《时间简史》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-24T16:00:00.000Z" title="Created 2023-09-25 00:00:00">2023-09-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A7%91%E6%99%AE/">科普</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%89%A9%E7%90%86/">物理</a></span></div><div class="content">摘录 然而，如果的确存在一个完备的统一理论，它也很可能决定我们的行动——于是，理论本身会决定我们寻求它的结果！而为什么它必须决定我们从这些证据中得到正确的结论？难道它不会同样地决定我们得出错误的结论吗？或者根本没有结论？ 实际上，缺乏静止的绝对标准在物理学上含意深远：它意味着，我们不能确定发生在不同时间的两个事件是否发生在空间中的相同位置上。除非历史已经表明，你曾经到达过去，并且当时并没有杀死你的曾曾祖父，或者没有采取任何行为，这些行为和到达你现状的历史相冲突，你才能在时间中回到过去。况且，当你回到过去，你不能改变记载的历史，你仅仅是跟随着它。按照这一观点，过去和将来是注定的：你没有自由意志为所欲为。 我们说人类具有自由意志，那是因为我们不能够预言他们未来的行为。然而，如果一个人乘火箭飞船出发并在这之前已经返回，因为他的未来行为是记载的历史的一部分，所以我们就能够预言之。这样，在那种情形下，时间旅行者在任何意义上都没有自由意志。 解决时间旅行佯谬的其他可能方法可以称做选择历史假想。其思想是，当时间旅行者回到过去，他们进入和记载的历史不同的另外的历史中去，这样，他们可自由地行动，不...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/f9ce/" title="《乡土中国》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《乡土中国》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/f9ce/" title="《乡土中国》读书笔记">《乡土中国》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-23T16:00:00.000Z" title="Created 2023-09-24 00:00:00">2023-09-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%A4%BE%E7%A7%91/">社科</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E4%B9%A1%E6%9D%91/">乡村</a></span></div><div class="content">读书笔记|《乡土中国》摘录 乡土本色 从土里长出过光荣的历史，自然也会受到土的束缚，现在很有些飞不上天的样子。 靠种地谋生的人才明白泥土的可贵。城里人可以用土气来藐视乡下人，但是乡下，“土”是他们的命根。 乡土社会在地方性的限制下成了生于斯、死于斯的社会。常态的生活是终老是乡。假如在一个村子里的人都是这样的话，在人和人的关系上也就发生了一种特色，每个孩子都是在人家眼中看着长大的，在孩子眼里周围的人也是从小就看惯的。这是一个“熟悉”的社会，没有陌生人的社会。 “学”是和陌生事物的最初接触，“习”是陶炼，“不亦说乎”是描写熟悉之后的亲密感觉。在一个熟悉的社会中，我们会得到从心所欲不逾矩的自由。 乡土社会的信用并不是对契约的重视，而是发生于对一种行为的规矩熟悉到不假思索时的可靠性。 在乡土社会中生长的人似乎不太追求这笼罩万有的真理。我读《论语》时，看到孔子在不同人面前说着不同的话来解释“孝”的意义时，我感觉到这乡土社会的特性了。孝是什么？孔子没有抽象地加以说明，而是列举具体的行为，因人而异地答复了他的学生。最后甚至归结到“心安”二字。做子女的得在日常接触中去摸熟父母的性格，然后去承他们...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/4010/" title="《金蔷薇》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《金蔷薇》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/4010/" title="《金蔷薇》读书笔记">《金蔷薇》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-22T16:00:00.000Z" title="Created 2023-09-23 00:00:00">2023-09-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%86%99%E4%BD%9C/">写作</a></span></div><div class="content">摘录 每一分钟，每一个在无意中说出来的字眼，每一个无心的流盼，每一个深刻的或者戏谑的想法，人的心脏的每一次觉察不到的搏动，一如杨树的飞絮或者夜间映在水洼中的星光——无不都是一粒粒金粉。  我们，文学家们，以数十年的时间筛取着数以百万计的这种微尘，不知不觉地把它们聚集拢来，熔成金，然后将其锻造成我们的“金蔷薇”——中篇小说、长篇小说或者长诗。 一个作家，只有当他确信自己的良心同他人的良心一致的时候，才会充分感到欢乐。 ——萨尔蒂科夫-谢德林 就这样，我第一次证实了对作家来说最主要的是，在任何作品中，甚至是在这样一篇短短的小说中，都要毫无保留、毫不吝啬地表达自己，从而表达自己的时代、自己的人民。任何情况——无论是不必要地担心自己在读者面前出丑，无论是生怕重复（当然是用另一种方式）其他作家已经说过的话，无论是对批评家和编辑的顾虑，都不应该阻止一个作家去表达自己的思想感情。  在写作的时候应该忘掉一切，好像这是在写给自己看，或者世上最亲近的人看的。  必须让自己的内心世界自由驰骋，必须为它打开所有的闸门，于是你就会突然惊异地发现你意识中所蕴含的思想、感情和诗的力量远比你想象的要多。 至于...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/23b2/" title="《文化苦旅》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《文化苦旅》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/23b2/" title="《文化苦旅》读书笔记">《文化苦旅》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-19T16:00:00.000Z" title="Created 2023-09-20 00:00:00">2023-09-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%A3%E6%96%87/">散文</a></span></div><div class="content">摘录 我发现，自己特别想去的地方，总是古代文人留下较深脚印的所在，说明我心底的山水并不完全是自然山水，而是一种“人文山水”。这是历史文化长期熏染的结果，要摆脱也摆脱不了。每到一个地方，总有一种沉重的历史气压罩住我的全身，使我无端地感动，无端地喟叹。常常像傻瓜一样木然伫立着，一会儿满脑章句，一会儿满脑空白。  我站在古人一定站过的地方，用先辈同样的黑眼珠打量着差不多的自然景观，静听着与千百年前没有丝毫差异的风声鸟声，产生了一种特别的感觉。中国文化的真实步履，正是贮存在这山重水复、莽莽苍苍的大地上。大地默默无言，只要来一两个有悟性的文人一站立，它封存久远的文化内涵也就能哗的一生奔泻而出；文人本也萎靡柔弱，只要为这种奔泻所裹卷，倒也能吞吐千年。 水，看似柔顺无骨，却能变得气势滚滚，波涌浪叠，无比强大；看似无色无味，却能挥洒出茫茫绿野，累累硕果，万紫千红；看似自处低下，却能蒸腾九霄，为云为雨，为虹为霞…… [[道德经（古典名著全本注译文库）-36274697|道德经]]  向往峰巅，向往高度，结果峰巅只是一道刚能立足的狭地。不能横行，不能直走，只享一时俯视之乐，怎可长久驻足安坐？上已无路...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/d743/" title="《一个人的村庄》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《一个人的村庄》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/d743/" title="《一个人的村庄》读书笔记">《一个人的村庄》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-17T16:00:00.000Z" title="Created 2023-09-18 00:00:00">2023-09-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%85%E4%B9%A1/">故乡</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%A3%E6%96%87/">散文</a></span></div><div class="content">喜欢的几篇 寒风吹彻 树会记住很多事情 家园荒芜 远远的敲门声 我的死 今生今世的证据 我受的教育  摘录 人在回家的路上一步步长成大人，出门时是个孩子，回到家已成老人。风改变了所有人的一生。我们都不知道风改变了所有人的一生。我们长大、长老，然后死去，刮过村庄的一场风还没有停。 我感到满世界只剩下我一个人。多少个夜晚我趴在这个小窗口，望着村后黑糊糊的无限荒野，就真切地感到我是最后面的一个人。  我倾听着一夜一夜穿过荒野橐橐而来的陌生声音，冥想它们是来自遥远年代的失败的一群，被我们抛弃的一群，在浩茫的时间之野上重新强大起来，它们循着岁月追赶而来，年月是我们的路，我们害怕自己在时间中迷失，所以创造了纪元、年、月、日，这些人为的标记也为我们留下了清晰的走向和踪迹。 人们向未来奔跑，寄希望于未来，在更加空茫的未来，我们真能获得一种强大的力量来抵挡过去。 孩子打好水，脸盆放在地上，跑到院门口，看见父亲还在远处的田野里走着，独独的一个人，一摇一晃的。他的影子像一渠水，悠扬地朝家里流淌着。 似乎我们成了一个周转站，生活对我们好一点，我们给身边事物的关爱就会多一点。我们没能像继续粮食一样在心中积...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/46b1/" title="《呐喊·彷徨》读书笔记"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《呐喊·彷徨》读书笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/46b1/" title="《呐喊·彷徨》读书笔记">《呐喊·彷徨》读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-16T16:00:00.000Z" title="Created 2023-09-17 00:00:00">2023-09-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BB%8F%E5%85%B8/">经典</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%8E%B0%E5%AE%9E/">现实</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%89%B9%E5%88%A4/">批判</a></span></div><div class="content">摘录 我感到未尝经验的无聊，是自此以后的事。我当初是不知其所以然的；后来想，凡有一人的主张，得了赞和，是促其前进的，得了反对，是促其奋斗的，独有叫喊于生人中，而生人并无反应，既非赞同，也无反对，如置身毫无边际的荒原，无可措手的了，这是怎样的悲哀呵，我于是以我所感到者为寂寞。  “假如一间铁屋子，是绝无窗户而万难破毁的，里面有许多熟睡的人们，不久都要闷死了，然而是从昏睡入死灭，并不感到就死的悲哀。现在你大嚷起来，惊起了较为清醒的几个人，使这不幸的少数者来受无可挽救的临终的苦楚，你倒以为对得起他们么？”  “然而几个人既然起来，你不能说绝没有毁坏这铁屋的希望。”  在我自己，本以为现在是已经并非一个切迫而不能已于言的人了，但或者也还未能忘怀于当日自己的寂寞的悲哀罢，所以有时候仍不免呐喊几声，聊以慰藉那在寂寞里奔驰的猛士，使他不惮于前驱。  这一学年没有完毕，我已经到了东京了，因为从那一回以后，我便觉得医学并非一件紧要事，凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客，病死多少是不必以为不幸的。  从来如此，便对么？ ——《狂人日记》  我想：我竟与闰土...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/cc1/" title="《草房子》书评"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《草房子》书评"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/cc1/" title="《草房子》书评">《草房子》书评</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-15T16:00:00.000Z" title="Created 2023-09-16 00:00:00">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%A4%E7%8B%AC/">孤独</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%84%BF%E7%AB%A5/">儿童</a></span></div><div class="content">非常非常好看的一部小说，为小时候没看感到一丝遗憾，但现在看也别有一番味道。 这部小说好就好在那种氛围感、朦胧感、孤独感、成长干，就像我之前看的哪本书呢？《此间的少年》是有些像的。现在我的表达能力很难说出它到底哪里好。那就留给以后来说吧。 我现在想说的是它带给我的思考。 当下该如何感动儿童？曹文轩的《追随永恒》给出了答案。  孩子——这些未长大成人的人，首先一点依旧：他们是能够被感动的。其次：能感动他们的东西无非也还是那些东西——生离死别、游驻聚散、悲悯情怀、厄运中的相扶、困境中的相助、孤独中的理解、冷漠中的脉脉温馨和殷殷情爱……总而言之，自有文学以来，无论是抒情的浪漫主义还是写实的现实主义，它们所用来做“感动”文章的那些东西，依然有效——我们大概也很难在有新的感动招数。   感动他们的，应是道义的力量、情感的力量、智慧的力量和美的力量，而这一切是永在的。只要你曾真诚地生活过，只要你又能真诚地写出来，总会感动人的。你有你的生活——你最有权利动用的生活，正是与你的命运、与你的爱恨相织一体的生活。动用这样的生活，是最科学的写作行为。我们唯一要记住的是，感动人的那些东西是千古不变的，我们...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/4261.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">言照</div><div class="author-info-description">青山遮不住，毕竟东流去</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/threeyang3"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">很感谢你看我的文章，期待你的反馈。</div></div><div class="card-widget article" id="article"><div class="item-headline"><i class="fas fa-user"></i><span>了解作者</span></div><div class="item-content"><p><a href="https://threeyang3.github.io/posts/2a0d/">二十岁生日随笔</a></p> <p><a href="https://threeyang3.github.io/posts/f938/">关于写作和理想</a></p> <p><a href="https://threeyang3.github.io/posts/b258/">三观的变化</a></p></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/48e3/" title="关于这个Blog的一些说明"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于这个Blog的一些说明"/></a><div class="content"><a class="title" href="/posts/48e3/" title="关于这个Blog的一些说明">关于这个Blog的一些说明</a><time datetime="2024-07-14T16:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e57e/" title="《流浪地球》书评"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《流浪地球》书评"/></a><div class="content"><a class="title" href="/posts/e57e/" title="《流浪地球》书评">《流浪地球》书评</a><time datetime="2024-06-11T16:00:00.000Z" title="Created 2024-06-12 00:00:00">2024-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《羊脂球》——莫泊桑短篇小说集"/></a><div class="content"><a class="title" href="/posts/7506/" title="《羊脂球》——莫泊桑短篇小说集">《羊脂球》——莫泊桑短篇小说集</a><time datetime="2024-06-05T16:00:00.000Z" title="Created 2024-06-06 00:00:00">2024-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《关妖精的瓶子》读书笔记"/></a><div class="content"><a class="title" href="/posts/9c06/" title="《关妖精的瓶子》读书笔记">《关妖精的瓶子》读书笔记</a><time datetime="2024-05-30T16:00:00.000Z" title="Created 2024-05-31 00:00:00">2024-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1ea8/" title="《战争与和平》"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《战争与和平》"/></a><div class="content"><a class="title" href="/posts/1ea8/" title="《战争与和平》">《战争与和平》</a><time datetime="2024-05-26T16:00:00.000Z" title="Created 2024-05-27 00:00:00">2024-05-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             
-            </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BD%B1%E8%AF%84/"><span class="card-category-list-name">影评</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">读书笔记</span><span class="card-category-list-count">29</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span class="card-category-list-count">21</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%90%86%E6%83%B3/" style="font-size: 1.45em; color: rgb(156, 200, 96)">理想</a><a href="/tags/%E7%BB%8F%E5%85%B8/" style="font-size: 1.4em; color: rgb(160, 74, 128)">经典</a><a href="/tags/%E8%8B%B1%E6%96%87/" style="font-size: 1.15em; color: rgb(96, 166, 96)">英文</a><a href="/tags/%E5%93%B2%E6%80%9D/" style="font-size: 1.3em; color: rgb(28, 105, 180)">哲思</a><a href="/tags/%E8%8B%A6%E9%9A%BE/" style="font-size: 1.2em; color: rgb(14, 116, 33)">苦难</a><a href="/tags/%E6%95%85%E4%B9%A1/" style="font-size: 1.25em; color: rgb(22, 156, 178)">故乡</a><a href="/tags/%E6%95%A3%E6%96%87/" style="font-size: 1.25em; color: rgb(39, 171, 79)">散文</a><a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 1.2em; color: rgb(22, 90, 53)">科普</a><a href="/tags/%E7%89%A9%E7%90%86/" style="font-size: 1.2em; color: rgb(120, 148, 165)">物理</a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 1.45em; color: rgb(200, 25, 155)">科幻</a><a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 1.15em; color: rgb(3, 27, 53)">概率论</a><a href="/tags/%E7%A4%BE%E7%A7%91/" style="font-size: 1.25em; color: rgb(194, 157, 74)">社科</a><a href="/tags/%E4%B9%A1%E6%9D%91/" style="font-size: 1.15em; color: rgb(173, 114, 82)">乡村</a><a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.15em; color: rgb(183, 117, 146)">哲学</a><a href="/tags/%E5%AD%A4%E7%8B%AC/" style="font-size: 1.2em; color: rgb(7, 166, 146)">孤独</a><a href="/tags/%E6%AE%89%E9%81%93/" style="font-size: 1.2em; color: rgb(53, 117, 138)">殉道</a><a href="/tags/%E9%B2%81%E8%BF%85/" style="font-size: 1.15em; color: rgb(50, 46, 174)">鲁迅</a><a href="/tags/%E7%8E%B0%E5%AE%9E/" style="font-size: 1.15em; color: rgb(15, 8, 63)">现实</a><a href="/tags/%E6%89%B9%E5%88%A4/" style="font-size: 1.3em; color: rgb(145, 161, 39)">批判</a><a href="/tags/%E6%82%B2%E6%82%AF/" style="font-size: 1.25em; color: rgb(101, 132, 151)">悲悯</a><a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 1.15em; color: rgb(137, 0, 118)">爱情</a><a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.2em; color: rgb(122, 129, 169)">历史</a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 1.45em; color: rgb(88, 30, 105)">小说</a><a href="/tags/%E6%82%B2%E5%89%A7/" style="font-size: 1.25em; color: rgb(196, 0, 10)">悲剧</a><a href="/tags/%E5%B8%8C%E6%9C%9B/" style="font-size: 1.15em; color: rgb(9, 80, 153)">希望</a><a href="/tags/%E8%BE%A9%E8%AF%81/" style="font-size: 1.4em; color: rgb(171, 138, 57)">辩证</a><a href="/tags/%E4%B8%89%E8%A7%82/" style="font-size: 1.15em; color: rgb(40, 134, 164)">三观</a><a href="/tags/%E5%AE%B6%E4%BA%BA/" style="font-size: 1.15em; color: rgb(76, 73, 73)">家人</a><a href="/tags/%E5%BE%80%E4%BA%8B/" style="font-size: 1.35em; color: rgb(81, 132, 87)">往事</a><a href="/tags/%E5%84%BF%E7%AB%A5/" style="font-size: 1.15em; color: rgb(139, 199, 115)">儿童</a><a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 1.3em; color: rgb(143, 191, 111)">写作</a><a href="/tags/%E5%8D%A1%E5%B0%94%E7%BB%B4%E8%AF%BA/" style="font-size: 1.15em; color: rgb(188, 76, 160)">卡尔维诺</a><a href="/tags/%E8%8D%92%E8%AF%9E/" style="font-size: 1.15em; color: rgb(176, 47, 49)">荒诞</a><a href="/tags/%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96/" style="font-size: 1.15em; color: rgb(152, 143, 52)">传统文化</a><a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 1.2em; color: rgb(161, 73, 27)">书评</a><a href="/tags/%E9%9A%94%E9%98%82/" style="font-size: 1.15em; color: rgb(58, 125, 143)">隔阂</a><a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 1.35em; color: rgb(5, 126, 91)">个人</a><a href="/tags/%E7%90%86%E6%83%B3%E4%B9%A1/" style="font-size: 1.15em; color: rgb(114, 70, 166)">理想乡</a><a href="/tags/%E8%B0%A3%E8%A8%80/" style="font-size: 1.15em; color: rgb(99, 189, 142)">谣言</a><a href="/tags/%E4%BD%9B%E7%B3%BB/" style="font-size: 1.2em; color: rgb(137, 122, 124)">佛系</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">52</div></div><div class="webinfo-item"><div class="item-name">Run time :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-07-02T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">124.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-17T13:08:57.130Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/bk1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By 言照</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Thank you for reading!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
-  endLoading: () => {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loading-box').classList.add("loaded")
-  },
-  initLoading: () => {
-    document.body.style.overflow = '';
-    document.getElementById('loading-box').classList.remove("loaded")
-
-  }
-}
-window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+          </div>
+          <ul class="card-category-list expandBtn" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BD%B1%E8%AF%84/"><span class="card-category-list-name">影评</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">读书笔记</span><span class="card-category-list-count">29</span></a></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span class="card-category-list-count">21</span><i class="fas fa-caret-left expand"></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/%E4%B9%A6%E8%AF%84/"><span class="card-category-list-name">书评</span><span class="card-category-list-count">1</span></a></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 1.2em; color: rgb(50, 188, 123);">科普</a><a href="/tags/%E7%89%A9%E7%90%86/" style="font-size: 1.2em; color: rgb(56, 90, 191);">物理</a><a href="/tags/%E6%A2%A6%E6%83%B3/" style="font-size: 1.45em; color: rgb(143, 67, 181);">梦想</a><a href="/tags/%E8%8B%B1%E6%96%87/" style="font-size: 1.15em; color: rgb(170, 123, 50);">英文</a><a href="/tags/%E5%93%B2%E6%80%9D/" style="font-size: 1.35em; color: rgb(79, 50, 110);">哲思</a><a href="/tags/%E8%8B%A6%E9%9A%BE/" style="font-size: 1.2em; color: rgb(50, 109, 50);">苦难</a><a href="/tags/%E6%95%85%E4%B9%A1/" style="font-size: 1.25em; color: rgb(50, 141, 50);">故乡</a><a href="/tags/%E6%95%A3%E6%96%87/" style="font-size: 1.25em; color: rgb(108, 50, 61);">散文</a><a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" style="font-size: 1.15em; color: rgb(93, 50, 50);">概率论</a><a href="/tags/%E7%A4%BE%E7%A7%91/" style="font-size: 1.25em; color: rgb(64, 102, 50);">社科</a><a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 1.45em; color: rgb(111, 141, 181);">科幻</a><a href="/tags/%E6%AE%89%E9%81%93/" style="font-size: 1.2em; color: rgb(122, 177, 162);">殉道</a><a href="/tags/%E4%B9%A1%E6%9D%91/" style="font-size: 1.15em; color: rgb(70, 89, 195);">乡村</a><a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 1.45em; color: rgb(97, 73, 102);">小说</a><a href="/tags/%E5%BF%83%E7%97%9B/" style="font-size: 1.25em; color: rgb(133, 50, 182);">心痛</a><a href="/tags/%E5%8A%B1%E5%BF%97/" style="font-size: 1.15em; color: rgb(50, 50, 130);">励志</a><a href="/tags/%E5%AD%A4%E7%8B%AC/" style="font-size: 1.2em; color: rgb(132, 74, 50);">孤独</a><a href="/tags/%E7%BB%8F%E5%85%B8/" style="font-size: 1.3em; color: rgb(159, 187, 157);">经典</a><a href="/tags/%E7%8E%B0%E5%AE%9E/" style="font-size: 1.15em; color: rgb(50, 50, 177);">现实</a><a href="/tags/%E6%89%B9%E5%88%A4/" style="font-size: 1.3em; color: rgb(90, 103, 110);">批判</a><a href="/tags/%E6%82%B2%E6%82%AF/" style="font-size: 1.25em; color: rgb(199, 149, 50);">悲悯</a><a href="/tags/%E9%92%9F%E7%88%B1/" style="font-size: 1.15em; color: rgb(122, 124, 112);">钟爱</a><a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 1.15em; color: rgb(50, 117, 151);">爱情</a><a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.2em; color: rgb(71, 50, 87);">历史</a><a href="/tags/%E8%BE%A9%E8%AF%81/" style="font-size: 1.4em; color: rgb(73, 144, 50);">辩证</a><a href="/tags/%E5%BE%80%E4%BA%8B/" style="font-size: 1.35em; color: rgb(50, 50, 118);">往事</a><a href="/tags/%E4%BA%B2%E6%83%85/" style="font-size: 1.15em; color: rgb(193, 98, 179);">亲情</a><a href="/tags/%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96/" style="font-size: 1.15em; color: rgb(50, 50, 179);">传统文化</a><a href="/tags/%E5%86%99%E4%BD%9C/" style="font-size: 1.3em; color: rgb(50, 91, 149);">写作</a><a href="/tags/%E9%9A%94%E9%98%82/" style="font-size: 1.15em; color: rgb(50, 127, 91);">隔阂</a><a href="/tags/%E4%B8%89%E8%A7%82/" style="font-size: 1.15em; color: rgb(157, 90, 189);">三观</a><a href="/tags/%E7%90%86%E6%83%B3%E4%B9%A1/" style="font-size: 1.15em; color: rgb(86, 74, 67);">理想乡</a><a href="/tags/%E4%BD%9B%E7%B3%BB/" style="font-size: 1.2em; color: rgb(69, 134, 84);">佛系</a><a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 1.35em; color: rgb(99, 177, 50);">个人</a><a href="/tags/%E8%B0%A3%E8%A8%80/" style="font-size: 1.15em; color: rgb(189, 150, 136);">谣言</a><a href="/tags/%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7/" style="font-size: 1.15em; color: rgb(139, 194, 65);">不确定性</a><a href="/tags/%E5%91%BD%E8%BF%90/" style="font-size: 1.15em; color: rgb(72, 50, 182);">命运</a><a href="/tags/%E8%8D%92%E8%AF%9E/" style="font-size: 1.15em; color: rgb(50, 176, 125);">荒诞</a><a href="/tags/%E6%96%87%E5%AD%A6/" style="font-size: 1.15em; color: rgb(50, 125, 135);">文学</a><a href="/tags/%E6%B4%BB%E5%9C%A8%E5%BD%93%E4%B8%8B/" style="font-size: 1.15em; color: rgb(105, 148, 68);">活在当下</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      <a class="card-more-btn" href="/archives/"
+            title="View More">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/07/">
+            <span class="card-archive-list-date">
+              七月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/06/">
+            <span class="card-archive-list-date">
+              六月 2024
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/05/">
+            <span class="card-archive-list-date">
+              五月 2024
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/04/">
+            <span class="card-archive-list-date">
+              四月 2024
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/10/">
+            <span class="card-archive-list-date">
+              十月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/09/">
+            <span class="card-archive-list-date">
+              九月 2023
+            </span>
+            <span class="card-archive-list-count">12</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/08/">
+            <span class="card-archive-list-date">
+              八月 2023
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/06/">
+            <span class="card-archive-list-date">
+              六月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">52</div></div><div class="webinfo-item"><div class="item-name">Total Word Count :</div><div class="item-count">124.5k</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-05-04T11:27:42.593Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By 言照</span></div><div class="footer_custom_text">Thank you for reading!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
