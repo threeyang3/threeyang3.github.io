@@ -12,10 +12,17 @@
   function displayItem(item, config) {
     const host = config.type === 'movie' ? 'movie' : 'book';
     const id = String(item.alt).match(new RegExp(`^https://${host}\\.douban\\.com/subject/(\\d+)/$`))?.[1];
-    const correction = config.title_corrections?.[id];
-    // Correct only a verified stale title, never replace newer upstream metadata.
-    return correction && item.title === correction.stale_title
-      ? { ...item, title: correction.title } : item;
+    const correction = config.metadata_corrections?.[id];
+    if (!correction) return item;
+    let corrected = item;
+    // Match fields independently: upstream may refresh the title before the date.
+    if (item.title === correction.stale_title) corrected = { ...corrected, title: correction.title };
+    const meta = String(item.meta || '').split(' / ');
+    if (correction.stale_publish_date && meta[meta.length - 1] === correction.stale_publish_date) {
+      meta[meta.length - 1] = correction.publish_date;
+      corrected = { ...corrected, meta: meta.join(' / ') };
+    }
+    return corrected === item ? item : { ...corrected, correction_source: httpsUrl(correction.source) };
   }
 
   function normalizeResponse(response, type) {
@@ -42,7 +49,7 @@
     const pages = Math.max(1, Math.ceil(group.items.length / size));
     page = Math.max(1, Math.min(page, pages));
     const tabs = config.data_list.map(group => `<button type="button" class="idouban-tab${group.action === action ? ' idouban-tab-active' : ''}" data-action="${group.action}" aria-pressed="${group.action === action}">${labels[config.type][actions.indexOf(group.action)]} (${group.items.length})</button>`).join('');
-    const items = group.items.slice((page - 1) * size, page * size).map(item => displayItem(item, config)).map(item => `<article class="idouban-item"><div class="idouban-picture">${httpsUrl(item.image) ? `<img src="${escape(httpsUrl(item.image))}" alt="${escape(item.title)}封面" width="100" height="130" loading="lazy">` : ''}</div><div class="idouban-info"><h2><a href="${escape(httpsUrl(item.alt))}" target="_blank" rel="noopener noreferrer">${escape(item.title)}</a></h2><p class="idouban-meta">${escape(item.meta)}</p><p class="idouban-rating">${escape(item.mark)}${ratings[item.rate] ? ' / ' + ratings[item.rate] : ''}</p>${item.comment ? `<p class="idouban-comment">${escape(item.comment)}</p>` : ''}</div></article>`).join('') || '<p class="douban-empty">这个分类还没有记录。</p>';
+    const items = group.items.slice((page - 1) * size, page * size).map(item => displayItem(item, config)).map(item => `<article class="idouban-item"><div class="idouban-picture">${httpsUrl(item.image) ? `<img src="${escape(httpsUrl(item.image))}" alt="${escape(item.title)}封面" width="100" height="130" loading="lazy">` : ''}</div><div class="idouban-info"><h2><a href="${escape(httpsUrl(item.alt))}" target="_blank" rel="noopener noreferrer">${escape(item.title)}</a></h2><p class="idouban-meta">${escape(item.meta)}</p>${item.correction_source ? `<p class="idouban-meta">片名或上映日期已据<a href="${escape(item.correction_source)}" target="_blank" rel="noopener noreferrer">影片官网</a>校正</p>` : ''}<p class="idouban-rating">${escape(item.mark)}${ratings[item.rate] ? ' / ' + ratings[item.rate] : ''}</p>${item.comment ? `<p class="idouban-comment">${escape(item.comment)}</p>` : ''}</div></article>`).join('') || '<p class="douban-empty">这个分类还没有记录。</p>';
     const button = (label, target, disabled) => `<button type="button" class="idouban-button" data-page="${target}"${disabled ? ' disabled' : ''}>${label}</button>`;
     const pagination = `<nav class="idouban-pagination" aria-label="清单翻页">${button('首页', 1, page === 1)}${button('上一页', page - 1, page === 1)}<span class="idouban-page-num" role="status">${page} / ${pages}</span>${button('下一页', page + 1, page === pages)}${button('尾页', pages, page === pages)}</nav>`;
     return `<div class="idouban-tabs" role="group" aria-label="阅读或观看状态">${tabs}</div><div class="idouban-items">${items}</div>${pagination}`;
@@ -96,7 +103,7 @@
       config = updated;
       page = Math.min(page, Math.max(1, Math.ceil(config.data_list.find(group => group.action === action).items.length / (config.page_size || 10))));
       if (changed) render();
-      status.textContent = '已检查最新记录；豆瓣同步可能稍有延迟。';
+      status.textContent = '已刷新 Mouban 同步清单；书影音资料不保证与豆瓣实时一致。';
     } catch {
       status.textContent = '暂时无法检查更新，已保存的清单仍可浏览。';
     } finally {
