@@ -17,3 +17,57 @@ body {
 #article-container {
   font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif !important;
 }
+
+/* Reading cards and fallback colors complement the configured forest background. */
+:root {
+  --global-bg: #f3f6f5;
+  --font-color: #304441;
+  --card-box-shadow: 0 3px 15px rgba(37, 77, 75, .05);
+}
+[data-theme="dark"] {
+  --global-bg: #182322;
+  --card-bg: #202c2b;
+  --font-color: #d8e4e1;
+}
+#footer { background: var(--global-bg); color: var(--font-color); border-top: 1px solid var(--discovery-line); }
+#footer::before { background: transparent; }
+#footer .footer-other, #footer .footer-other a { color: var(--font-color); }
+#aside-content .card-info #card-info-btn { background: var(--discovery-ink); color: var(--card-bg); }
+#aside-content .reading-shelves a { display: block; padding: 7px 0; color: var(--discovery-link); }
+#aside-content .card-info .card-info-social-icons a { color: var(--discovery-ink); }
+.reading-shelves h3 { font-size: 1rem; }
+#post #article-container { overflow-wrap: anywhere; }
+
+/* Static and live Douban lists share the same compact reading layout. */
+#page:has(#idouban) { max-width: 920px; margin: 0 auto; }
+#idouban { color: var(--font-color); scroll-margin-top: 20px; }
+#idouban .idouban-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+#idouban .idouban-tab, #idouban .idouban-button, #douban-refresh { display: inline-block; padding: 8px 12px; border-radius: 4px; color: var(--discovery-link); background: var(--discovery-soft); border: 1px solid var(--discovery-line); font: inherit; cursor: pointer; }
+#idouban button:disabled, #douban-refresh:disabled { opacity: .5; cursor: default; }
+#idouban .idouban-tab-active { background: var(--discovery-ink); color: var(--card-bg) !important; }
+#idouban .idouban-item { border-bottom: 1px solid var(--discovery-line); padding: 22px 0; min-height: 174px; position: relative; }
+#idouban .idouban-picture { position: absolute; top: 22px; left: 0; }
+#idouban .idouban-picture img { width: 100px; height: 130px; object-fit: contain; margin: 0; }
+#idouban .idouban-info { padding-left: 120px; }
+#idouban .idouban-info h2 { margin: 0 0 8px; font-size: 1.12rem; line-height: 1.6; }
+#idouban .idouban-info p { margin: 6px 0; }
+#idouban .idouban-meta, #idouban .idouban-rating { font-size: .85rem; line-height: 1.8; }
+#idouban .idouban-meta { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+#idouban .idouban-comment { line-height: 1.9; }
+#idouban a { color: var(--discovery-link); }
+#idouban .idouban-pagination { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; }
+.douban-updates { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; font-size: .85rem; }
+.douban-updates a { color: var(--discovery-link); }
+#douban-update-status { flex: 1 1 260px; }
+#idouban .idouban-pagination { margin: 24px 0 8px; }
+#idouban .idouban-page-num { min-width: 55px; text-align: center; }
+@media (max-width: 767px) {
+  #page:has(#idouban) { padding: 24px 20px; }
+  #idouban .idouban-item { display: grid; grid-template-columns: 76px minmax(0, 1fr); column-gap: 16px; }
+  #idouban .idouban-picture { position: static; grid-column: 1; grid-row: 1 / span 3; }
+  #idouban .idouban-info { display: contents; }
+  #idouban .idouban-info h2, #idouban .idouban-meta, #idouban .idouban-rating { grid-column: 2; }
+  #idouban .idouban-comment { grid-column: 1 / -1; }
+  #idouban .idouban-picture img { width: 76px; max-height: 114px; }
+  #idouban .idouban-tab, #idouban .idouban-button { padding: 10px 8px; }
+}

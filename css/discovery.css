@@ -2,7 +2,13 @@
 :root { --discovery-ink: #254d4b; --discovery-link: #246879; --discovery-line: #d8e4e3; --discovery-soft: #f0f6f5; }
 [data-theme="dark"] { --discovery-ink: #b7dbd5; --discovery-link: #91cad4; --discovery-line: #354b4b; --discovery-soft: #223332; }
 html { scroll-padding-top: 90px; }
-#page-header.full_page { height: 340px; min-height: 0; }
+#page-header.full_page { height: 300px; min-height: 0; }
+/* One continuous forest behind the home banner and reading cards. */
+#web_bg { inset: 0; }
+#web_bg ~ #body-wrap #page-header.full_page { background: transparent !important; }
+#web_bg ~ #body-wrap #page-header.full_page::before {
+  background: linear-gradient(to bottom, rgba(6, 24, 33, .5), rgba(6, 24, 33, .25) 65%, transparent);
+}
 #page-header.full_page #site-info { top: 42%; }
 #page-header.full_page #site-title { font-size: clamp(1.9rem, 4vw, 2.8rem); }
 #page-header.full_page #site-subtitle { font-size: 1.05rem; }
@@ -37,6 +43,7 @@ html { scroll-padding-top: 90px; }
 .discovery-start .discovery-post h3 { font-size: 1.06rem; }
 .discovery-start .discovery-post p { font-size: .88rem; }
 .discovery-post { display: grid; grid-template-columns: 160px minmax(0, 1fr); align-items: center; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--discovery-line); }
+.discovery-post.discovery-post-text { grid-template-columns: minmax(0, 1fr); }
 .discovery-post-cover { display: block; width: 160px; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 4px; background: var(--discovery-soft); }
 .discovery-post-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .discovery-post-content { min-width: 0; }
@@ -98,7 +105,7 @@ html { scroll-padding-top: 90px; }
 #local-search hr::before { display: none; }
 #local-search #loading-database { padding: 10px; }
 @media (max-width: 767px) {
-  #page-header.full_page { height: 260px; }
+  #page-header.full_page { height: 220px; }
   #page-header.full_page #site-info { top: 35%; }
   #page-header.full_page #site_social_icons { display: none; }
   #page-header:not(.post-bg).not-home-page { height: 200px; }

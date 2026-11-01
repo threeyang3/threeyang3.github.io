@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Threeyang's blog</title><meta name="author" content="言照"><meta name="copyright" content="言照"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f3f6f5"><meta name="description" content="青山遮不住，毕竟东流去">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Threeyang&#39;s blog">
+<meta property="og:url" content="https://threeyang.top/page/8/">
+<meta property="og:site_name" content="Threeyang&#39;s blog">
+<meta property="og:description" content="青山遮不住，毕竟东流去">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://threeyang.top/img/4261.JPG">
+<meta property="article:author" content="言照">
+<meta property="article:tag" content="读书 写作 计算机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://threeyang.top/img/4261.JPG"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/logo.ico"><link rel="canonical" href="https://threeyang.top/page/8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=5.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#182322')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#f3f6f5')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Threeyang\'s blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/discovery.css?v=20261101"><link rel="stylesheet" href="/css/custom.css?v=20261101"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Threeyang's blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/bk1.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/4261.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">53</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-pen"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E8%AF%84%E8%AE%BA/"><i class="fa-fw fas fa-comment"></i><span> 评论</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-book"></i><span> 笔记</span></a></div><div class="menus_item"><a class="site-page" href="/articles/"><i class="fa-fw fas fa-compass"></i><span> 文章索引</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book-open"></i><span> 阅读之外</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book-open"></i><span> 读书清单</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影清单</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于作者</span></a></li><li><a class="site-page child" href="/about/websites/"><i class="fa-fw fas fa-link"></i><span> 相关网站</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header" style="background-image: url(/img/bk1.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Threeyang's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-pen"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E8%AF%84%E8%AE%BA/"><i class="fa-fw fas fa-comment"></i><span> 评论</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-book"></i><span> 笔记</span></a></div><div class="menus_item"><a class="site-page" href="/articles/"><i class="fa-fw fas fa-compass"></i><span> 文章索引</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book-open"></i><span> 阅读之外</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book-open"></i><span> 读书清单</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影清单</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于作者</span></a></li><li><a class="site-page child" href="/about/websites/"><i class="fa-fw fas fa-link"></i><span> 相关网站</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Threeyang's blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc discovery-home" id="recent-posts"><section class="discovery-latest" id="latest"><div class="discovery-section-heading"><h2>最新文章</h2><a href="/archives/">查看时间归档</a></div><div class="discovery-post-list"><article class="discovery-post"><a class="discovery-post-cover" href="&#x2F;posts&#x2F;c5e8&#x2F;" tabindex="-1" aria-hidden="true"><img src="&#x2F;img&#x2F;covers&#x2F;seeing-you-off.jpg" alt="" loading="lazy"></a><div class="discovery-post-content"><div class="discovery-post-meta"><time datetime="2022-01-08">2022-01-08</time><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></div><h3><a href="&#x2F;posts&#x2F;c5e8&#x2F;">《目送》2022</a></h3><p>阅读《目送》后，回忆父亲送学、陪诊与机场分别，在反复离去的背影中，体会父母的牵挂与放手。</p></div></article><article class="discovery-post discovery-post-text"><div class="discovery-post-content"><div class="discovery-post-meta"><time datetime="2022-01-06">2022-01-06</time><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></div><h3><a href="&#x2F;posts&#x2F;319b&#x2F;">爱与和平</a></h3><p>从《超兽武装》的强弱与爱恨之辩，追问和平、公平和道德信念的基础，以及跳出报复循环的困难。</p></div></article><article class="discovery-post discovery-post-text"><div class="discovery-post-content"><div class="discovery-post-meta"><time datetime="2022-01-05">2022-01-05</time><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></div><h3><a href="&#x2F;posts&#x2F;38ea&#x2F;">回家乡</a></h3><p>离乡六年后重返济源与邵原，从新家的心安到旧街故人的变化，体会思乡的热切和物是人非的怅惘。</p></div></article><article class="discovery-post discovery-post-text"><div class="discovery-post-content"><div class="discovery-post-meta"><time datetime="2021-12-18">2021-12-18</time><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></div><h3><a href="&#x2F;posts&#x2F;8066&#x2F;">“荒谬”的苦难哲学？</a></h3><p>借对苦难哲学的争论，反思接受新观点后全盘否定旧观念的习惯，主张认真辨析而非以反常识彰显深刻。</p></div></article><article class="discovery-post"><a class="discovery-post-cover" href="&#x2F;posts&#x2F;b49e&#x2F;" tabindex="-1" aria-hidden="true"><img src="&#x2F;img&#x2F;covers&#x2F;the-letter.jpg" alt="" loading="lazy"></a><div class="discovery-post-content"><div class="discovery-post-meta"><time datetime="2021-12-11">2021-12-11</time><a href="/categories/%E8%AF%84%E8%AE%BA/">评论</a><a href="/categories/%E8%AF%84%E8%AE%BA/%E8%AF%BB%E4%B9%A6/">读书</a></div><h3><a href="&#x2F;posts&#x2F;b49e&#x2F;">关于《信》和歧视</a></h3><p>借东野圭吾《信》中罪犯家属的处境，探讨个人避险、群体偏见与平等理念之间的冲突。</p></div></article><article class="discovery-post"><a class="discovery-post-cover" href="&#x2F;posts&#x2F;c7a2&#x2F;" tabindex="-1" aria-hidden="true"><img src="&#x2F;img&#x2F;covers&#x2F;the-great-gatsby.jpg" alt="" loading="lazy"></a><div class="discovery-post-content"><div class="discovery-post-meta"><time datetime="2021-12-06">2021-12-06</time><a href="/categories/%E8%AF%84%E8%AE%BA/">评论</a><a href="/categories/%E8%AF%84%E8%AE%BA/%E8%AF%BB%E4%B9%A6/">读书</a></div><h3><a href="&#x2F;posts&#x2F;c7a2&#x2F;">书评《了不起的盖茨比》</a></h3><p>从盖茨比无法跨越的阶层隔膜，思考对他人认可的执念、自卑与圈子的距离，并辨认真正亲密的友谊。</p></div></article></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/7/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/9/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></section></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/4261.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">言照</div><div class="author-info-description">青山遮不住，毕竟东流去</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">53</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" href="/about/"><i class="fas fa-user"></i><span>关于作者</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://www.zhihu.com/people/foolish-36-15" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="https://github.com/threeyang3" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2499436961@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget reading-shelves" id="reading-shelves"><div class="item-headline"><i class="fas fa-book-open"></i><span>阅读之外</span></div><div class="item-content"><a href="/books/">读书清单</a> <a href="/movies/">电影清单</a></div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 言照</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.0"></script><script src="/js/main.js?v=5.7.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (false) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (false) {
+      const sub = ["今日事，今日毕"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed && typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["今日事，今日毕"])
+}
+typedJSFn.run(subtitleType)</script></div><script src="/js/daily-subtitle.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/site-search.js"></script></div></div></body></html>
