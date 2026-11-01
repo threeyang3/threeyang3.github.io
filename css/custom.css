@@ -28,7 +28,40 @@ body {
   --global-bg: #182322;
   --card-bg: #202c2b;
   --font-color: #d8e4e1;
+  --search-bg: #202c2b;
+  --search-input-color: #d8e4e1;
+  --search-a-color: #91cad4;
+  --sidebar-bg: #202c2b;
+  --sidebar-menu-bg: #293c3a;
+  --blockquote-bg: #293c3a;
+  --blockquote-color: #c4d7d2;
+  --toc-link-color: #c4d7d2;
+  --text-highlight-color: #e6efec;
+  --btn-bg: #293c3a;
+  --btn-color: #d8e4e1;
+  --btn-hover-color: #365651;
+  --text-bg-hover: #365651;
+  --tab-border-color: #354b4b;
+  --tab-button-bg: #293c3a;
+  --tab-button-color: #d8e4e1;
+  --tab-button-hover-bg: #365651;
+  --tab-button-active-bg: #202c2b;
+  --hr-border: #354b4b;
+  --scrollbar-color: #668e87;
+  --card-box-shadow: 0 3px 15px rgba(0, 0, 0, .14);
 }
+[data-theme="dark"] #page-header.nav-fixed > #nav,
+[data-theme="dark"] #page-header.not-top-img > #nav { background: rgba(24, 35, 34, .96); }
+[data-theme="dark"] #article-container a,
+[data-theme="dark"] #post .post-copyright a { color: var(--discovery-link); }
+[data-theme="dark"] #article-container :is(h1, h2, h3, h4, h5, h6) { color: var(--discovery-ink); }
+[data-theme="dark"] #article-container blockquote { border-left-color: #668e87; }
+[data-theme="dark"] #article-container code { color: #d8e4e1; background: #293c3a; }
+[data-theme="dark"] ::selection { color: #e6efec; background: #365651; }
+[data-theme="dark"] #local-search .search-dialog .search-nav,
+[data-theme="dark"] #local-search .search-dialog .search-nav .search-close-button { color: var(--discovery-ink); }
+[data-theme="dark"] #aside-content #card-toc .toc-content .toc-link.active { color: #202c2b; background: #b7dbd5; }
+[data-theme="dark"] #pagination .page-number.current { color: #202c2b; background: #b7dbd5; }
 #footer { background: var(--global-bg); color: var(--font-color); border-top: 1px solid var(--discovery-line); }
 #footer::before { background: transparent; }
 #footer .footer-other, #footer .footer-other a { color: var(--font-color); }
@@ -36,6 +69,15 @@ body {
 #aside-content .reading-shelves a { display: block; padding: 7px 0; color: var(--discovery-link); }
 #aside-content .card-info .card-info-social-icons a { color: var(--discovery-ink); }
 .reading-shelves h3 { font-size: 1rem; }
+#aside-content .item-headline { color: var(--discovery-ink); }
+#aside-content .card-tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 8px; }
+/* Hexo's tag helper writes inline colors; keep both modes on the site palette. */
+#aside-content .card-tag-cloud a { font-size: .9rem !important; color: var(--discovery-link) !important; padding: 3px 9px; background: var(--discovery-soft); border: 1px solid var(--discovery-line); border-radius: 4px; }
+#aside-content .card-tag-cloud a:hover { text-decoration: underline; text-underline-offset: 3px; }
+#aside-content .card-categories .card-category-list-item > a,
+#aside-content .card-archives .card-archive-list-item > a { border-radius: 4px; }
+#aside-content .card-categories .card-category-list-item > a:hover,
+#aside-content .card-archives .card-archive-list-item > a:hover { background: var(--discovery-soft); color: var(--discovery-link); }
 #post #article-container { overflow-wrap: anywhere; }
 
 /* Static and live Douban lists share the same compact reading layout. */
