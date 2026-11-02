@@ -1,0 +1,22 @@
+/* Shared by the workbench preview and Hexo; only an explicit selection opts in. */
+:is(#article-container, #markdownPreview)[data-article-style="essay"] {
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif !important;
+  font-size: 17px; line-height: 2.05;
+  --article-accent: #80613d; --article-surface: #f7f3ed;
+}
+:is(#article-container, #markdownPreview)[data-article-style="research"] {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
+  font-size: 16px; line-height: 1.85;
+  --article-accent: #285c91; --article-surface: #f2f6fb;
+}
+[data-theme="dark"] :is(#article-container, #markdownPreview)[data-article-style="essay"] { --article-accent: #d5bc91; --article-surface: #30362f; }
+[data-theme="dark"] :is(#article-container, #markdownPreview)[data-article-style="research"] { --article-accent: #9dbcf5; --article-surface: #263640; }
+:is(#article-container, #markdownPreview):is([data-article-style="essay"], [data-article-style="research"]) p { margin: 0 0 1.3em; }
+:is(#article-container, #markdownPreview):is([data-article-style="essay"], [data-article-style="research"]) :is(h1,h2,h3,h4,h5,h6) { font-family: inherit !important; color: var(--article-accent) !important; line-height: 1.6; text-align: left; letter-spacing: normal; }
+:is(#article-container, #markdownPreview)[data-article-style="essay"] h2 { margin: 2em 0 1em; border: 0; }
+:is(#article-container, #markdownPreview)[data-article-style="research"] h2 { margin: 1.8em 0 .8em; padding-bottom: .4em; border-bottom: 1px solid var(--article-accent); }
+:is(#article-container, #markdownPreview):is([data-article-style="essay"], [data-article-style="research"]) blockquote { margin: 1.5em 0; padding: .8em 1em; background: var(--article-surface); color: inherit; border: 0; border-left: 3px solid var(--article-accent); }
+:is(#article-container, #markdownPreview)[data-article-style="research"] :is(th,td) { padding: .6em .8em; }
+@media (max-width: 600px) {
+  :is(#article-container, #markdownPreview)[data-article-style="essay"] { font-size: 16px; }
+}
